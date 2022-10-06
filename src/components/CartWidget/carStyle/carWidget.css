@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Go Medium";
+  src: url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.eot");
+  src: url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.svg#Go Medium")
+      format("svg");
+}
+
+.carWidget {
+  display: flex;
+  align-items: center;
+}
+
+.imagenCarrito {
+  width: 30px;
+}
+
+.contadorCarrito {
+  width: 15px;
+  height: 15px;
+  border-radius: 1em;
+  font-family: "Go Medium";
+  background-color: #76b900;
+  color: #eeeeee;
+  position: absolute;
+  margin-left: 8px;
+  margin-top: -5px;
+  font-size: 12px;
+  font-weight: 500;
+}

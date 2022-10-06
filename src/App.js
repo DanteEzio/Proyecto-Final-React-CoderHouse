@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavbarNvidia from "./components/navbar/Navbar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+// import { useState } from "react";
+//Routes nos ayuda a indicar los componentes que se van a mostrar de forma condicional
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
+  // const [page, setPage] = useState("list");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* {page === "list" && (
+        <ItemListContainer welcomePage={"Selecciona tu Producto"} />
+      )}
+      {page === "detail" && <ItemDetailContainer />} */}
+      <BrowserRouter>
+        <NavbarNvidia />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ItemListContainer welcomePage={"Selecciona tu Producto"} />
+            }
+          />
+          <Route
+            path="category"
+            element={
+              <ItemListContainer welcomePage={"Selecciona tu Producto"} />
+            }
+          />
+          <Route path="/detail/:productId" element={<ItemDetailContainer />} />
+          <Route path='*' element={ <h1>404 Not Found</h1> } />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
