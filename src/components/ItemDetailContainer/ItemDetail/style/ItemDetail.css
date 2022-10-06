@@ -73,18 +73,36 @@
       format("svg");
 }
 
-.containerDetail{
-  background-color: #1a1a1a;
+.productDetailC{
+  /* background-color: rgba(212, 208, 208, 0.89); */
+  /* box-shadow: 0 0 25px 3px #75b900c2; */
+}
+
+.imgContainerDetail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productIMGDetail{
+  object-fit: cover;
 }
 
 .cardDetail{
   border-radius: 0;
+  background: none;
+  border: none;
+}
+
+.cardBodyDetail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cardProduct {
   border: none;
   background-color: #eee;
-  box-shadow: 0 0 15px 3px #75b900c2;
 }
 
 .descDetail{
@@ -92,7 +110,7 @@
   text-decoration: none;
   color: #333333;
   font-family: "DINPro-Light";
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1em;
   text-transform: normal;
   font-weight: bold;
@@ -101,7 +119,7 @@
 .skuDetail {
   color: #4d4d4d;
   font-family: "GeForce-Regular";
-  font-size: 14px;
+  font-size: 16px;
   line-height: 2em;
   text-transform: normal;
 }
@@ -109,7 +127,7 @@
 .pDetail {
   color: #4d4d4d;
   font-family: "GeForce-Regular";
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1em;
   text-transform: normal;
   font-weight: bold;
@@ -120,7 +138,7 @@
 }
 
 .stockDetail {
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 0;
   line-height: 24px;
   font-family: "DINPro-Light";
@@ -135,7 +153,7 @@
   background-color: #76b900;
   border-color: #76b900;
   border-radius: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 }
 
