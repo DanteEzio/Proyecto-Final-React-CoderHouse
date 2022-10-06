@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Go Medium";
+  src: url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.eot");
+  src: url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/047f4505be97c463bc637f1767d274d6.svg#Go Medium")
+      format("svg");
+}
+
+@font-face {
+  font-family: "GeForce-Regular";
+  src: url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.eot");
+  src: url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/7c842801a63c2d8d75278221b6723214.svg#GeForce")
+      format("svg");
+}
+
+@font-face {
+  font-family: "GeForce-Bold";
+  src: url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.eot");
+  src: url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/cf67b63a12a22d6fe21be02b8dfdf060.svg#GeForce")
+      format("svg");
+}
+
+@font-face {
+  font-family: "DINPro-Light";
+  src: url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.eot");
+  src: url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/e0be9bd5e372b2c379893b776e7b2b96.svg#DINPro-Light")
+      format("svg");
+}
+
+@font-face {
+  font-family: "DINPro-Regular";
+  src: url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.eot");
+  src: url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/c9c60c88cb732119e5a9457f2d9cdc53.svg#DINPro-Regular")
+      format("svg");
+}
+
+.containerDetail{
+  background-color: #1a1a1a;
+}
+
+.cardDetail{
+  border-radius: 0;
+}
+
+.cardProduct {
+  border: none;
+  background-color: #eee;
+  box-shadow: 0 0 15px 3px #75b900c2;
+}
+
+.descDetail{
+  padding-top: 20px;;
+  text-decoration: none;
+  color: #333333;
+  font-family: "DINPro-Light";
+  font-size: 20px;
+  line-height: 1em;
+  text-transform: normal;
+  font-weight: bold;
+}
+
+.skuDetail {
+  color: #4d4d4d;
+  font-family: "GeForce-Regular";
+  font-size: 14px;
+  line-height: 2em;
+  text-transform: normal;
+}
+
+.pDetail {
+  color: #4d4d4d;
+  font-family: "GeForce-Regular";
+  font-size: 16px;
+  line-height: 1em;
+  text-transform: normal;
+  font-weight: bold;
+}
+
+.pDetail > s {
+  color: red;
+}
+
+.stockDetail {
+  font-size: 16px;
+  padding: 10px 0;
+  line-height: 24px;
+  font-family: "DINPro-Light";
+}
+
+.addCarDetail {
+  /* margin: 120px 0px 60px 0px; */
+  padding: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "DINPro-Light";
+  background-color: #76b900;
+  border-color: #76b900;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.addCarDetail:hover {
+  background-color: #86d103;
+  border-color: #86d103;
+}
