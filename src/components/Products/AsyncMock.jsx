@@ -306,3 +306,11 @@ export const getProduct = (id) => {
     }, 1500);
   });
 };
+
+export const getProductsByCategory = (categoryId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(products.filter(product => product.categoria === categoryId));
+    }, 1500);
+  });
+};

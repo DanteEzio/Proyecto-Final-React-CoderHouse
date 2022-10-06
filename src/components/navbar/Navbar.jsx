@@ -29,9 +29,11 @@ export const NavbarNvidia = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-start flex-grow-1 pe-3 linksMenu">
-                <Nav.Link href="#action1">Laptops</Nav.Link>
-                <Nav.Link href="#action2">Tarjetas Gráficas</Nav.Link>
-                <Nav.Link href="#action3">Monitores G-SYNC</Nav.Link>
+                <Nav.Link href="/category/laptops">Laptops</Nav.Link>
+                <Nav.Link href="/category/tGraficas">
+                  Tarjetas Gráficas
+                </Nav.Link>
+                <Nav.Link href="/category/monitores">Monitores G-SYNC</Nav.Link>
               </Nav>
               <Form className="d-flex">
                 <CartWidget />
