@@ -116,11 +116,17 @@
   font-weight: bold;
 }
 
+.categoryDetail{
+  font-family: "GeForce-Regular";
+  color: #333333;
+  padding-top: 10px;
+}
+
 .skuDetail {
   color: #4d4d4d;
   font-family: "GeForce-Regular";
   font-size: 16px;
-  line-height: 2em;
+  /* line-height: 1em; */
   text-transform: normal;
 }
 
@@ -128,7 +134,7 @@
   color: #4d4d4d;
   font-family: "GeForce-Regular";
   font-size: 18px;
-  line-height: 1em;
+  line-height: 0em;
   text-transform: normal;
   font-weight: bold;
 }
@@ -139,10 +145,22 @@
 
 .stockDetail {
   font-size: 18px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   line-height: 24px;
   font-family: "DINPro-Light";
 }
+
+.countDetail{
+  font-size: 22px;
+  padding: 10px 0;
+  line-height: 24px;
+  font-family: "GeForce-Regular";
+}
+
+/* .iCount{
+  width: 10em;
+  height: 25px;
+} */
 
 .addCarDetail {
   /* margin: 120px 0px 60px 0px; */

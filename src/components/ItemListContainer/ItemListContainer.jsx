@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getProducts, getProductsByCategory } from "../Products/AsyncMock";
 import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import LoadingWidget from "../LoadingWidget/LoadingWidget";
 
 // Aquí estamos recibiendo el Saludo de la Página por props
 export const ItemListContainer = ({ welcomePage }) => {
@@ -54,7 +55,8 @@ export const ItemListContainer = ({ welcomePage }) => {
   // console.log(products)
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    // return <h1>Loading...</h1>;
+    return <LoadingWidget/>
   }
 
   if (error) {

@@ -1,7 +1,7 @@
 const products = [
   {
     id: 1,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-1.webp",
     nombre: "Laptop Lenovo Legion 5 15.6'",
     descripcion:
@@ -13,7 +13,7 @@ const products = [
   },
   {
     id: 2,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-2.webp",
     nombre: "Laptop Gamer MSI GF65",
     descripcion:
@@ -25,7 +25,7 @@ const products = [
   },
   {
     id: 3,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-3.jpg",
     nombre: "Laptop Gigabyte G5 15.6'",
     descripcion:
@@ -37,7 +37,7 @@ const products = [
   },
   {
     id: 4,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-4.webp",
     nombre: "Laptop Gamer MSI Sword 15 15.6'",
     descripcion:
@@ -49,7 +49,7 @@ const products = [
   },
   {
     id: 5,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-5.webp",
     nombre: "Laptop Gamer Acer Nitro 5 15.6'",
     descripcion:
@@ -61,7 +61,7 @@ const products = [
   },
   {
     id: 6,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-6.jpg",
     nombre: "Lenovo Notebook Legion 5 15.6'",
     descripcion:
@@ -73,7 +73,7 @@ const products = [
   },
   {
     id: 7,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-8.webp",
     nombre: "Gigabyte AERO 5 XE4 15.6'",
     descripcion:
@@ -85,7 +85,7 @@ const products = [
   },
   {
     id: 8,
-    categoria: "laptops",
+    categoria: "Laptops",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/LAPTOP-9.webp",
     nombre: "Laptop AORUS 17 YE5 17.3'",
     descripcion:
@@ -97,7 +97,7 @@ const products = [
   },
   {
     id: 9,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-1.jpg",
     nombre: "LG 27GL650F-B Monitor",
     descripcion:
@@ -109,7 +109,7 @@ const products = [
   },
   {
     id: 10,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-2.jpg",
     nombre: "Asus Monitor IPS TUF",
     descripcion:
@@ -121,7 +121,7 @@ const products = [
   },
   {
     id: 11,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-3.jpg",
     nombre: "LG 34GL750-B, Monitor 34'",
     descripcion:
@@ -133,7 +133,7 @@ const products = [
   },
   {
     id: 12,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-4.jpg",
     nombre: "LG 27GP750-B 27” Ultragear",
     descripcion:
@@ -145,7 +145,7 @@ const products = [
   },
   {
     id: 13,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-5.jpg",
     nombre: "LG 34GN850-B UltraWide Gaming Monitor 34'",
     descripcion:
@@ -157,7 +157,7 @@ const products = [
   },
   {
     id: 14,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-6.jpg",
     nombre: "LG Ultragear - Monitor para Videojuegos, 27 Pulgadas",
     descripcion:
@@ -169,7 +169,7 @@ const products = [
   },
   {
     id: 15,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-7.jpg",
     nombre: "Alienware AW2521H - Monitor",
     descripcion:
@@ -181,7 +181,7 @@ const products = [
   },
   {
     id: 16,
-    categoria: "monitores",
+    categoria: "Monitores",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/monitor-8.jpg",
     nombre: "Laptop AORUS 17 YE5 17.3'",
     descripcion:
@@ -193,7 +193,7 @@ const products = [
   },
   {
     id: 17,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3060Ti.webp",
     nombre: "RTX 3060 Ti Twin Edge",
     descripcion:
@@ -205,7 +205,7 @@ const products = [
   },
   {
     id: 18,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3080.webp",
     nombre: "RTX 3080 Trinity LHR",
     descripcion:
@@ -217,7 +217,7 @@ const products = [
   },
   {
     id: 19,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3050.webp",
     nombre: "RTX 3050 OC",
     descripcion:
@@ -229,7 +229,7 @@ const products = [
   },
   {
     id: 20,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3080Ti.jpg",
     nombre: "RTX 3080 Ti Trinity",
     descripcion:
@@ -241,7 +241,7 @@ const products = [
   },
   {
     id: 21,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3070Ti.webp",
     nombre: "RTX 3070 Ti OC",
     descripcion:
@@ -253,7 +253,7 @@ const products = [
   },
   {
     id: 22,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3060.webp",
     nombre: "RTX 3060 DUAL",
     descripcion:
@@ -265,7 +265,7 @@ const products = [
   },
   {
     id: 23,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3070.webp",
     nombre: "RTX 3070 GamingPro",
     descripcion:
@@ -277,7 +277,7 @@ const products = [
   },
   {
     id: 24,
-    categoria: "tGraficas",
+    categoria: "Tarjetas Graficas",
     img: "https://raw.githubusercontent.com/DanteEzio/AJAX-FETCH/master/imagenes/3090.jpg",
     nombre: "RTX 3090 Trinity Gaming",
     descripcion:

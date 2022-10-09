@@ -20,6 +20,9 @@ const ItemDetail = ({ product }) => {
               <h6 className="card-subtitle mb-2 text-muted skuDetail">
                 SKU - {product.sku}
               </h6>
+              <p className="card-text mb-2 text-muted categoryDetail">
+                Categoria: {product.categoria}
+              </p>
               <p className="card-text pt-4 pDetail">
                 <s>${product.pReal.toLocaleString()} MXN</s>
               </p>
@@ -33,13 +36,18 @@ const ItemDetail = ({ product }) => {
                 <thead>
                   <tr className="d-flex align-items-center">
                     <th scope="col">
-                      <button type="button" class="btn btn-danger">
+                      <button
+                        type="button"
+                        class="btn btn-danger iCount btn-sm"
+                      >
                         <FontAwesomeIcon icon={faMinus} />
                       </button>
                     </th>
-                    <th scope="col">1</th>
+                    <th className="countDetail" scope="col">
+                      1
+                    </th>
                     <th scope="col">
-                      <button type="button" class="btn btn-success">
+                      <button type="button" class="btn btn-success btn-sm">
                         <FontAwesomeIcon icon={faPlus} />
                       </button>
                     </th>

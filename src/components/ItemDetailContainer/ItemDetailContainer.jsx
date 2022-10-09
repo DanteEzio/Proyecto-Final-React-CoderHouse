@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getProduct } from "../Products/AsyncMock";
 import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail/ItemDetail";
+import LoadingWidget from "../LoadingWidget/LoadingWidget";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -23,7 +24,8 @@ const ItemDetailContainer = () => {
 //   console.log(product);
 
   if (loading) {
-    return <h1>Cargando...</h1>;
+    // return <h1>Cargando...</h1>;
+    return <LoadingWidget />;
   }
 
   return (
