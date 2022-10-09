@@ -1,7 +1,7 @@
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
 import { getProducts, getProductsByCategory } from "../Products/AsyncMock";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 // Aquí estamos recibiendo el Saludo de la Página por props
