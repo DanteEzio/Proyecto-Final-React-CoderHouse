@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const InputCount = ({ onConfirm, stock, initial = 1 }) => {
+const InputCount = ({ onConfirm, products, initial = 1 }) => {
   const [count, setCount] = useState(initial);
 
   // const handleChange = (e) => {

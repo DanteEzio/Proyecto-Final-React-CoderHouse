@@ -5,9 +5,24 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import InputCount from "../../InputCount/InputCount";
 import ButtonCount from "../../ButtonCount/ButtonCount";
+import { useState } from "react";
 
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product, setCart }) => {
+
+  const [productStock, setProduct] = useState(product.stock);
+  console.log(productStock)
+  const [quantity, setQuantityToAdd] = useState(0)
+  // console.log(quantity)
+
+  const handleOnAdd = (quantity) => {
+    console.log("Agregue al carrito: " + quantity);
+    // console.log(quantity);
+    setQuantityToAdd(quantity);
+
+    setCart(product.id, product.nombre, product.pDescuento, product.stock);
+  }
+
   return (
     <div className="containerDetail">
       <div className="container pt-5 pb-5 text-center productDetailC">
@@ -92,29 +107,7 @@ const ItemDetail = ({ product }) => {
               <p className="card-text pt-4 stockDetail">
                 Disponibles: {product.stock}pzs.
               </p>
-              {/* <table className="table table-borderless d-flex justify-content-center">
-                <thead>
-                  <tr className="d-flex align-items-center">
-                    <th scope="col">
-                      <button
-                        type="button"
-                        className="btn btn-danger iCount btn-sm"
-                      >
-                        <FontAwesomeIcon icon={faMinus} />
-                      </button>
-                    </th>
-                    <th className="countDetail" scope="col">
-                      1
-                    </th>
-                    <th scope="col">
-                      <button type="button" className="btn btn-success btn-sm">
-                        <FontAwesomeIcon icon={faPlus} />
-                      </button>
-                    </th>
-                  </tr>
-                </thead>
-              </table> */}
-              <ButtonCount/>
+              <ButtonCount productStock={productStock} />
               <InputCount />
             </div>
           </div>

@@ -14,7 +14,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   // const [page, setPage] = useState("list");
 
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
 
   console.log(cart)
 

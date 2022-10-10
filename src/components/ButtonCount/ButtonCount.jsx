@@ -2,13 +2,24 @@ import "./ButtonCount.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
-const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
+const ButtonCount = ({ productStock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
-    if (count < stock || count >= 0) {
+    if (count < productStock) {
       setCount(count + 1);
+    } else {
+         Swal.fire({
+           showConfirmButton: false,
+           timer: 3000,
+           timerProgressBar: true,
+           title: `Solo Contamos con ${productStock}pzs Disponibles`,
+           icon: "warning",
+           background: "rgba(235, 137, 25, 0.726)",
+           color: "#eee",
+         });
     }
   };
 

@@ -4,12 +4,36 @@ import "./StyleNavbar/NavbarStyles.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 
-import React from "react";
+// import React, { useState, useEffect } from "react";
 
 export const NavbarNvidia = () => {
+  // const [backgroundNav, setBackgroundNav] = useState("light");
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+
+  //     const backgroundNav =
+  //       window.scrollY >= 80 ? "rgb(190, 184, 184)" : "light";
+
+  //     setBackgroundNav(backgroundNav);
+
+  //     return() => window.removeEventListener("scroll", handleScroll);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  // }, []);
+
   return (
     <>
-      <Navbar bg="light" variant="light" expand="md" className="navbarCSS">
+      <Navbar
+        sticky="top"
+        bg="light"
+        // bg={backgroundNav}
+        expand="md"
+        className="navbarCSS"
+        // style={{background: backgroundNav}}
+      >
         <Container>
           <Navbar.Brand>
             <Link to="/">
