@@ -1,0 +1,45 @@
+.containerFooter {
+  background-color: #000;
+}
+
+.containFooter {
+  padding: 35px 0;
+}
+
+.iconFooter {
+  font-family: "DINPro-Light";
+  color: #76b900;
+  font-size: 45px;
+}
+
+.textFooterUp {
+  font-family: "DINPro-Light";
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #76b900;
+}
+
+.btnFooter {
+  padding: 10px;
+  font-weight: bold;
+  font-family: "DINPro-Light";
+  background-color: #76b900;
+  border-color: #76b900;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.btnFooter:hover {
+  background-color: #86d103;
+  border-color: #86d103;
+}
+
+.textFooterDown {
+  padding-top: 10px;
+  font-family: "DINPro-Light";
+  color: #76b900;
+  font-size: 16px;
+  font-weight: 600;
+}

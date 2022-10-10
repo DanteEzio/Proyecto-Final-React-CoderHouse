@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 // import { useState } from "react";
 //Routes nos ayuda a indicar los componentes que se van a mostrar de forma condicional
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 //Sirve ":" sirve para indicar que habrá un valor dinámico y en compañia de "productId" esta será la variable que estara cambiando de manera dinamica
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/detail/:productId" element={<ItemDetailContainer />} />
           <Route path='*' element={ <h1>404 Not Found</h1> } />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
