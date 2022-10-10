@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
             <div className="mx-4">
               <h6 className="textFooterUp">
-                Regístrese Para Las Noticias De NVIDIA
+                Regístrese Para Estar al Día con las Noticias De NVIDIA
               </h6>
             </div>
             <div>
