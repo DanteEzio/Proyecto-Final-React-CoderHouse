@@ -1,10 +1,10 @@
 import "./style/ItemDetail.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
+import InputCount from "../../InputCount/InputCount";
+import ButtonCount from "../../ButtonCount/ButtonCount";
 
 
 const ItemDetail = ({ product }) => {
@@ -92,7 +92,7 @@ const ItemDetail = ({ product }) => {
               <p className="card-text pt-4 stockDetail">
                 Disponibles: {product.stock}pzs.
               </p>
-              <table className="table table-borderless d-flex justify-content-center">
+              {/* <table className="table table-borderless d-flex justify-content-center">
                 <thead>
                   <tr className="d-flex align-items-center">
                     <th scope="col">
@@ -113,12 +113,9 @@ const ItemDetail = ({ product }) => {
                     </th>
                   </tr>
                 </thead>
-              </table>
-              <div className="d-flex justify-content-center">
-                <button type="button" className="btn btn-success addCarDetail">
-                  <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
-                </button>
-              </div>
+              </table> */}
+              <ButtonCount/>
+              <InputCount />
             </div>
           </div>
         </div>

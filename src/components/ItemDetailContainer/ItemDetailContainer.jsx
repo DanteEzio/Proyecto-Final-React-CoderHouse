@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail/ItemDetail";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({setCart}) => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <ItemDetail product={product} />
+      <ItemDetail product={product} setCart={setCart} />
     </div>
   );
 };

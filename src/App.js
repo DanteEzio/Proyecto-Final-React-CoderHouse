@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarNvidia from "./components/navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
@@ -12,6 +13,10 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   // const [page, setPage] = useState("list");
+
+  const [cart, setCart] = useState();
+
+  console.log(cart)
 
   return (
     <>
@@ -35,7 +40,7 @@ function App() {
             }
           />
           
-          <Route path="/detail/:productId" element={<ItemDetailContainer />} />
+          <Route path="/detail/:productId" element={<ItemDetailContainer setCart={setCart} />} />
           <Route path='*' element={ <h1>404 Not Found</h1> } />
         </Routes>
         <Footer/>

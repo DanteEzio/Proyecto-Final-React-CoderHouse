@@ -73,12 +73,6 @@
       format("svg");
 }
 
-/* .containerDetail{
-  background-color: #333333; 
-  margin-top: 1em;
-   box-shadow: 0 0 25px 3px #75b900c2;
-} */
-
 .selectIMGDetail{
   max-width: 100px;
   height: auto;
@@ -154,29 +148,4 @@
   /* padding: 10px 0; */
   line-height: 24px;
   font-family: "DINPro-Light";
-}
-
-.countDetail{
-  font-size: 22px;
-  padding: 10px 0;
-  line-height: 24px;
-  font-family: "GeForce-Regular";
-}
-
-.addCarDetail {
-  /* margin: 120px 0px 60px 0px; */
-  padding: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "DINPro-Light";
-  background-color: #76b900;
-  border-color: #76b900;
-  border-radius: 0;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.addCarDetail:hover {
-  background-color: #86d103;
-  border-color: #86d103;
 }
