@@ -1,6 +1,6 @@
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
-import { getProducts, getProductsByCategory } from "../Products/AsyncMock";
+import { getProducts } from "../Products/AsyncMock";
 import ItemList from "./ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
@@ -20,35 +20,17 @@ export const ItemListContainer = ({ welcomePage }) => {
   useEffect(() => {
     // console.log(getProducts()) // Comprobamos que nos esta devolviendo nuestra función (en este caso, esta devolviendo una promesa)
 
-    //Si no tengo categoria, muestro todo
-    if (!categoryId) {
-      getProducts()
-        .then((resolve) => {
-          console.log(resolve);
-          setProducts(resolve);
-        })
-        .catch((error) => {
-          console.log(error);
-          setError(true);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    } else {
-      getProductsByCategory(categoryId)
-        .then((resolve) => {
-          console.log(resolve);
-          setProducts(resolve);
-        })
-        .catch((error) => {
-          console.log(error);
-          setError(true);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-
+    getProducts(categoryId)
+      .then((products) => {
+        setProducts(products);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
     //Le indicamos que esta parte se tiene que ejecutar despues de que nuestro componente sea montado en pantalla y esto lo hacemos con []
   }, [categoryId]); //Aqui le estamos diciendo que si el valor cambia vuelva a hacer la llamada
 

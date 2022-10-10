@@ -11,7 +11,7 @@ export const NavbarNvidia = () => {
     <>
       <Navbar bg="light" variant="light" expand="md" className="navbarCSS">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand>
             <Link to="/">
               <LogoNvidia />
             </Link>

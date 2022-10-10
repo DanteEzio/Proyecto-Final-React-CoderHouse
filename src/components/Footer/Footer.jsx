@@ -1,10 +1,6 @@
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faMinus,
-  faCartShopping,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
@@ -21,7 +17,7 @@ const Footer = () => {
               </h6>
             </div>
             <div>
-              <button type="button" class="btn btn-primary btnFooter">
+              <button type="button" className="btn btn-primary btnFooter">
                 Registrarse
               </button>
             </div>

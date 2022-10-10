@@ -291,26 +291,18 @@ const products = [
 
 // Para Obtener nuestros productos creamos nuestra funcion Asincrona (Esta función simula nuestra API)
 // *** La exportacion la estamos haciendo de manera nombrada, esto quiere decir que cuando importemos la funcion la tenemos que mandar a llamar con el mismo nombre ***
-export const getProducts = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products)
-        }, 1500)
-    })
-}
+export const getProducts = (categoryId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(categoryId ? products.filter(product => product.categoria === categoryId) : products);
+    }, 1500);
+  });
+};
 
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products.find(product => product.id === id));
-    }, 1500);
-  });
-};
-
-export const getProductsByCategory = (categoryId) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(products.filter(product => product.categoria === categoryId));
     }, 1500);
   });
 };
