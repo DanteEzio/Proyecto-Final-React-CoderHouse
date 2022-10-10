@@ -20,6 +20,8 @@ export const ItemListContainer = ({ welcomePage }) => {
   useEffect(() => {
     // console.log(getProducts()) // Comprobamos que nos esta devolviendo nuestra función (en este caso, esta devolviendo una promesa)
 
+    setLoading(true)
+
     getProducts(categoryId)
       .then((products) => {
         setProducts(products);

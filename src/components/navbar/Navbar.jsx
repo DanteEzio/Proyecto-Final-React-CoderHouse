@@ -2,7 +2,7 @@ import { Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import LogoNvidia from "./LogoNvidia/LogoNvidia";
 import "./StyleNavbar/NavbarStyles.css";
 import CartWidget from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import React from "react";
 
@@ -24,16 +24,39 @@ export const NavbarNvidia = () => {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
-                Offcanvas
+                <Link to="/">
+                  <LogoNvidia />
+                </Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-start flex-grow-1 pe-3 linksMenu">
-                <Nav.Link href="/category/Laptops">Laptops</Nav.Link>
-                <Nav.Link href="/category/Tarjetas Graficas">
+              <Nav className="d-flex align-items-center justify-content-start flex-grow-1 linksMenu">
+                <NavLink
+                  to="/category/Laptops"
+                  className={({ isActive }) =>
+                    isActive ? "activeCategory" : "inactiveCategory"
+                  }
+                >
+                  Laptops
+                </NavLink>
+                <NavLink
+                  to="/category/Tarjetas Graficas"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "activeCategory mx-lg-3 mx-md-3"
+                      : "inactiveCategory mx-lg-3 mx-md-3"
+                  }
+                >
                   Tarjetas Gráficas
-                </Nav.Link>
-                <Nav.Link href="/category/Monitores">Monitores G-SYNC</Nav.Link>
+                </NavLink>
+                <NavLink
+                  to="/category/Monitores"
+                  className={({ isActive }) =>
+                    isActive ? "activeCategory" : "inactiveCategory"
+                  }
+                >
+                  Monitores G-SYNC
+                </NavLink>
               </Nav>
               <Form className="d-flex">
                 <CartWidget />
