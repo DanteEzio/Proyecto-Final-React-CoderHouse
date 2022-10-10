@@ -1,18 +1,78 @@
 import "./style/ItemDetail.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import Col from "react-bootstrap/Col";
+import Nav from "react-bootstrap/Nav";
+import Row from "react-bootstrap/Row";
+import Tab from "react-bootstrap/Tab";
+
 
 const ItemDetail = ({ product }) => {
   return (
     <div className="containerDetail">
       <div className="container pt-5 pb-5 text-center productDetailC">
         <div className="row justify-content-center g-5">
-          <div className="col col-5 imgContainerDetail">
-            <img
-              src={product.img}
-              className="img-fluid productIMGDetail"
-              alt="..."
-            />
+          <div className="col col-7 imgContainerDetail d-flex align-items-center">
+            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+              <Row>
+                <Col sm={3}>
+                  <Nav variant="pills" className="flex-column">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">
+                        <img
+                          src={product.img}
+                          className="img-fluid selectIMGDetail"
+                          alt="..."
+                        />
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="second">
+                        <img
+                          src={product.img}
+                          className="img-fluid selectIMGDetail"
+                          alt="..."
+                        />
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="third">
+                        <img
+                          src={product.img}
+                          className="img-fluid selectIMGDetail"
+                          alt="..."
+                        />
+                      </Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </Col>
+                <Col sm={9}>
+                  <Tab.Content>
+                    <Tab.Pane eventKey="first">
+                      <img
+                        src={product.img}
+                        className="img-fluid productIMGDetail"
+                        alt="..."
+                      />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <img
+                        src={product.img}
+                        className="img-fluid productIMGDetail"
+                        alt="..."
+                      />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third">
+                      <img
+                        src={product.img}
+                        className="img-fluid productIMGDetail"
+                        alt="..."
+                      />
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
           </div>
           <div className="card col-4 cardDetail">
             <div className="card-body cardBodyDetail">
@@ -38,7 +98,7 @@ const ItemDetail = ({ product }) => {
                     <th scope="col">
                       <button
                         type="button"
-                        class="btn btn-danger iCount btn-sm"
+                        className="btn btn-danger iCount btn-sm"
                       >
                         <FontAwesomeIcon icon={faMinus} />
                       </button>
@@ -47,7 +107,7 @@ const ItemDetail = ({ product }) => {
                       1
                     </th>
                     <th scope="col">
-                      <button type="button" class="btn btn-success btn-sm">
+                      <button type="button" className="btn btn-success btn-sm">
                         <FontAwesomeIcon icon={faPlus} />
                       </button>
                     </th>
@@ -56,7 +116,7 @@ const ItemDetail = ({ product }) => {
               </table>
               <div className="d-flex justify-content-center">
                 <button type="button" className="btn btn-success addCarDetail">
-                  Añadir al Carrito
+                  <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
                 </button>
               </div>
             </div>

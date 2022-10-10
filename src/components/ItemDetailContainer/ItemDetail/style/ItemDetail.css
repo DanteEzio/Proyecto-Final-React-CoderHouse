@@ -73,25 +73,30 @@
       format("svg");
 }
 
-.productDetailC{
-  /* background-color: rgba(212, 208, 208, 0.89); */
-  /* box-shadow: 0 0 25px 3px #75b900c2; */
+/* .containerDetail{
+  background-color: #333333; 
+  margin-top: 1em;
+   box-shadow: 0 0 25px 3px #75b900c2;
+} */
+
+.selectIMGDetail{
+  max-width: 100px;
+  height: auto;
 }
 
-.imgContainerDetail{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    --bs-nav-pills-link-active-bg: none;
+    border: 2px solid #76b900;
 }
 
-.productIMGDetail{
-  object-fit: cover;
+.nav{
+  --bs-nav-link-color: #76b900;
+  --bs-nav-link-hover-color: #76b900;
 }
 
 .cardDetail{
   border-radius: 0;
-  background: none;
-  border: none;
 }
 
 .cardBodyDetail{
@@ -120,6 +125,7 @@
   font-family: "GeForce-Regular";
   color: #333333;
   padding-top: 10px;
+  font-size: 18px;
 }
 
 .skuDetail {
@@ -156,11 +162,6 @@
   line-height: 24px;
   font-family: "GeForce-Regular";
 }
-
-/* .iCount{
-  width: 10em;
-  height: 25px;
-} */
 
 .addCarDetail {
   /* margin: 120px 0px 60px 0px; */
