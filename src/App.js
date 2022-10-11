@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   // const [page, setPage] = useState("list");
 
+  //Creamos un estado que nos permitira ser utilizado por nuestro carWidget y por el navbar
   const [cart, setCart] = useState([]);
 
   console.log(cart)

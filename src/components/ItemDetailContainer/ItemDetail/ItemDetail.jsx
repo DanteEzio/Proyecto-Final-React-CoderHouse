@@ -3,24 +3,32 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import InputCount from "../../InputCount/InputCount";
+import ItemCount from "../../ItemCount/ItemCount";
 import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState } from "react";
 
+const ItemDetail = ({
+  id,
+  nombre,
+  img,
+  descripcion,
+  sku,
+  categoria,
+  stock,
+  pReal,
+  pDescuento,
+  setCart,
+}) => {
+  const [quantityToAdd, setQuantityToAdd] = useState(0);
+  console.log(quantityToAdd)
 
-const ItemDetail = ({ product, setCart }) => {
-
-  const [productStock, setProduct] = useState(product.stock);
-  console.log(productStock)
-  const [quantity, setQuantityToAdd] = useState(0)
-  // console.log(quantity)
-
+  //Esta función me permite guardar lo que va a agregar el usuario al carrito
   const handleOnAdd = (quantity) => {
     console.log("Agregue al carrito: " + quantity);
     // console.log(quantity);
     setQuantityToAdd(quantity);
 
-    setCart(product.id, product.nombre, product.pDescuento, product.stock);
+    setCart(id, nombre, pDescuento, quantity);
   }
 
   return (
@@ -35,7 +43,7 @@ const ItemDetail = ({ product, setCart }) => {
                     <Nav.Item>
                       <Nav.Link eventKey="first">
                         <img
-                          src={product.img}
+                          src={img}
                           className="img-fluid selectIMGDetail"
                           alt="..."
                         />
@@ -44,7 +52,7 @@ const ItemDetail = ({ product, setCart }) => {
                     <Nav.Item>
                       <Nav.Link eventKey="second">
                         <img
-                          src={product.img}
+                          src={img}
                           className="img-fluid selectIMGDetail"
                           alt="..."
                         />
@@ -53,7 +61,7 @@ const ItemDetail = ({ product, setCart }) => {
                     <Nav.Item>
                       <Nav.Link eventKey="third">
                         <img
-                          src={product.img}
+                          src={img}
                           className="img-fluid selectIMGDetail"
                           alt="..."
                         />
@@ -65,21 +73,21 @@ const ItemDetail = ({ product, setCart }) => {
                   <Tab.Content>
                     <Tab.Pane eventKey="first">
                       <img
-                        src={product.img}
+                        src={img}
                         className="img-fluid productIMGDetail"
                         alt="..."
                       />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
                       <img
-                        src={product.img}
+                        src={img}
                         className="img-fluid productIMGDetail"
                         alt="..."
                       />
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       <img
-                        src={product.img}
+                        src={img}
                         className="img-fluid productIMGDetail"
                         alt="..."
                       />
@@ -91,24 +99,24 @@ const ItemDetail = ({ product, setCart }) => {
           </div>
           <div className="card col-4 cardDetail">
             <div className="card-body cardBodyDetail">
-              <h5 className="card-title descDetail">{product.descripcion}</h5>
+              <h5 className="card-title descDetail">{descripcion}</h5>
               <h6 className="card-subtitle mb-2 text-muted skuDetail">
-                SKU - {product.sku}
+                SKU - {sku}
               </h6>
               <p className="card-text mb-2 text-muted categoryDetail">
-                Categoria: {product.categoria}
+                Categoria: {categoria}
               </p>
               <p className="card-text pt-4 pDetail">
-                <s>${product.pReal.toLocaleString()} MXN</s>
+                <s>${pReal.toLocaleString()} MXN</s>
               </p>
               <p className="card-text pt-4 pDetail">
-                ${product.pDescuento.toLocaleString()} MXN
+                ${pDescuento.toLocaleString()} MXN
               </p>
               <p className="card-text pt-4 stockDetail">
-                Disponibles: {product.stock}pzs.
+                Disponibles: {stock}pzs.
               </p>
-              <ButtonCount productStock={productStock} />
-              <InputCount />
+              <ButtonCount onConfirm={handleOnAdd} stock={stock} />
+              {/* <ItemCount onConfirm={handleOnAdd} stock={stock} /> */}
             </div>
           </div>
         </div>

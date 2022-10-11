@@ -1,4 +1,4 @@
-import "./ButtonCount.css";
+import "./ItemCount.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,12 +8,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
-const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
-  const [count, setCount] = useState(initial);
+const ItemCount = ({stock=0, initial = 1, onAdd }) => {
+  const [quantity, setQuantity] = useState(initial);
+
+  // const handleChange = (e) => {
+  //     if (e.target.value <= productStock) {
+  //         setCount(e.target.value)
+  //     }
+  // }
 
   const increment = () => {
-    if (count < stock) {
-      setCount(count + 1);
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
     } else {
       Swal.fire({
         showConfirmButton: false,
@@ -28,8 +34,8 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
   };
 
   const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
@@ -48,7 +54,8 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
               </button>
             </th>
             <th className="countDetail" scope="col">
-              {count}
+              {quantity}
+              {/* <input type="number" onChange={handleChange} className="form-control" value={count} /> */}
             </th>
             <th scope="col">
               <button
@@ -66,7 +73,7 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
         <button
           type="button"
           className="btn btn-success addCarDetail"
-          onClick={() => onConfirm(count)}
+          onClick={() => onAdd(quantity)}
         >
           <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
         </button>
@@ -75,4 +82,4 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
   );
 };
 
-export default ButtonCount;
+export default ItemCount;
