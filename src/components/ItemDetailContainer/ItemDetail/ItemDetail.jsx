@@ -28,7 +28,8 @@ const ItemDetail = ({
     // console.log(quantity);
     setQuantityToAdd(quantity);
 
-    setCart(id, nombre, pDescuento, quantity);
+    //Guardamos un Objeto con los siguientes parametros
+    setCart({id, nombre, pDescuento, quantity});
   }
 
   return (

@@ -7,7 +7,7 @@ const InputCount = ({ stock = 1, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const handleChange = (e) => {
-    if (e.target.value <= stock && e.target.value != 0) {
+    if (e.target.value <= stock && e.target.value > 0) {
       setCount(e.target.value);
     }
   };
