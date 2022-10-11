@@ -1,3 +1,7 @@
+.inputCount{
+  max-width: 25%;
+}
+
 .addCarDetail {
   padding: 14px;
   font-weight: bold;

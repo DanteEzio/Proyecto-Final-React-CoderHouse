@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
-const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
+const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
@@ -66,7 +66,7 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
         <button
           type="button"
           className="btn btn-success addCarDetail"
-          onClick={() => onConfirm(count)}
+          onClick={() => onAdd(count)}
         >
           <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
         </button>

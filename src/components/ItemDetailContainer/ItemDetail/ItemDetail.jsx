@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import ItemCount from "../../ItemCount/ItemCount";
+// import InputCount from "../../InputCount/InputCount";
 import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState } from "react";
 
@@ -115,8 +115,8 @@ const ItemDetail = ({
               <p className="card-text pt-4 stockDetail">
                 Disponibles: {stock}pzs.
               </p>
-              <ButtonCount onConfirm={handleOnAdd} stock={stock} />
-              {/* <ItemCount onConfirm={handleOnAdd} stock={stock} /> */}
+              <ButtonCount onAdd={handleOnAdd} stock={stock} />
+              {/* <InputCount onAdd={handleOnAdd} stock={stock} /> */}
             </div>
           </div>
         </div>
