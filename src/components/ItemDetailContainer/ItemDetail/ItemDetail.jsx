@@ -5,7 +5,9 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 // import InputCount from "../../InputCount/InputCount";
 import ButtonCount from "../../ButtonCount/ButtonCount";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../../Context/CartContext";
+
 
 const ItemDetail = ({
   id,
@@ -17,10 +19,12 @@ const ItemDetail = ({
   stock,
   pReal,
   pDescuento,
-  setCart,
 }) => {
   const [quantityToAdd, setQuantityToAdd] = useState(0);
-  console.log(quantityToAdd)
+  // console.log(quantityToAdd)
+
+  const {addItem} = useContext(CartContext)
+  
 
   //Esta función me permite guardar lo que va a agregar el usuario al carrito
   const handleOnAdd = (quantity) => {
@@ -29,7 +33,13 @@ const ItemDetail = ({
     setQuantityToAdd(quantity);
 
     //Guardamos un Objeto con los siguientes parametros
-    setCart({id, nombre, pDescuento, quantity});
+    // setCart([{id, nombre, pDescuento, quantity}]);
+
+    const productToAdd = {
+      id, nombre, pDescuento, quantity
+    }
+
+    addItem(productToAdd)
   }
 
   return (

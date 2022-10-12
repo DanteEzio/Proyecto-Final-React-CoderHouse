@@ -17,14 +17,18 @@ const Item = ({ product }) => {
               />
             </Link>
           </div>
-          <div className="card-body">
+          <div className="card-header mt-2 border-0 bg-transparent">
             <h5 className="card-title titleProduct">
-              <Link className="LinkTitleProduct" to={`/detail/${product.id}`}>{product.nombre}</Link>
+              <Link className="LinkTitleProduct" to={`/detail/${product.id}`}>
+                {product.nombre}
+              </Link>
             </h5>
-            <p className="card-text text-muted mutedProduct">
+          </div>
+          <div className="card-body">
+            {/* <p className="card-text text-muted mutedProduct">
               SKU - {product.sku}
-            </p>
-            <h6 className="card-text precioProducto">
+            </p> */}
+            <h6 className="card-title precioProducto precioReal">
               <s>${product.pReal.toLocaleString()} MXN</s>
             </h6>
             <h6 className="card-text precioProducto">
@@ -38,8 +42,10 @@ const Item = ({ product }) => {
                 <FontAwesomeIcon icon={faMagnifyingGlass} size="xs" /> Detalles
               </Link>
             </p>
+          </div>
+          <div className="card-footer border-0 bg-transparent">
             <button type="button" className="btn btn-primary addCar">
-              Agregar al Carrito
+              Añadir al Carrito
             </button>
           </div>
         </div>
