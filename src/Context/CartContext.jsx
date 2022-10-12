@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 export const CartContext = createContext();
@@ -7,7 +7,8 @@ export const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
   //Creamos un estado que nos permitira ser utilizado por nuestro carWidget y por el navbar
   // También inicializamos el useState con un array porque voy a tener mas de un producto
-  const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0)
 
   console.log(cart);
 
@@ -37,8 +38,23 @@ export const CartContextProvider = ({ children }) => {
     setCart(cartWithOutItem);
   };
 
+  useEffect(() => {
+      const totalQuantity = getTotalQuantity();
+      setTotalQuantity(totalQuantity);
+  }, [cart]);
+
+  const getTotalQuantity = () => {
+    let totalQuantity = 0; //Contador
+
+    cart.forEach((prod) => {
+      totalQuantity += prod.quantity;
+    });
+
+    return totalQuantity;
+  };
+
   return (
-      <CartContext.Provider value={{ addItem, removeItem }}>
+    <CartContext.Provider value={{ addItem, removeItem, totalQuantity }}>
       {children}
     </CartContext.Provider>
   );
