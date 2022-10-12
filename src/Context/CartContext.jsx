@@ -38,8 +38,8 @@ export const CartContextProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ addItem, removeItem }}>
-      {children} //Este sería mi Componente Hijo
+      <CartContext.Provider value={{ addItem, removeItem }}>
+      {children}
     </CartContext.Provider>
   );
 };
