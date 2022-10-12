@@ -2,6 +2,7 @@ import "./InputCount.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+// import ButtonAdd from "../ButtonAdd/ButtonAdd";
 
 const InputCount = ({ stock = 1, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
@@ -23,10 +24,11 @@ const InputCount = ({ stock = 1, initial = 1, onAdd }) => {
         />
       </div>
       <div className="d-flex justify-content-center">
+        {/* <ButtonAdd onClick={() => onAdd(count)} /> */}
         <button
+          onClick={() => onAdd(count)}
           type="button"
           className="btn btn-success addCarDetail"
-          onClick={() => onAdd(count)}
         >
           <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
         </button>

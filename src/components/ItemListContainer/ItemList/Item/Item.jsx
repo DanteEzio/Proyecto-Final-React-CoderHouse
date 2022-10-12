@@ -2,6 +2,7 @@ import "./style/Item.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ButtonAdd from "../../../ButtonAdd/ButtonAdd";
 
 const Item = ({ product }) => {
   return (
@@ -44,9 +45,7 @@ const Item = ({ product }) => {
             </p>
           </div>
           <div className="card-footer border-0 bg-transparent">
-            <button type="button" className="btn btn-primary addCar">
-              Añadir al Carrito
-            </button>
+            <ButtonAdd/>
           </div>
         </div>
       </div>

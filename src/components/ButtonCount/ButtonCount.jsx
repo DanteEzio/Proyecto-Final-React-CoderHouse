@@ -7,6 +7,7 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import ButtonAdd from "../ButtonAdd/ButtonAdd";
 
 const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
@@ -70,6 +71,7 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
         >
           <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
         </button>
+        {/* <ButtonAdd onClick={() => onAdd(count)} /> */}
       </div>
     </>
   );
