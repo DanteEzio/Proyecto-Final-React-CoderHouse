@@ -7,6 +7,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import { CartContextProvider } from "./Context/CartContext";
+import NotFound from "./components/404-NotFound/NotFound";
 
 //Sirve ":" sirve para indicar que habrá un valor dinámico y en compañia de "productId" esta será la variable que estara cambiando de manera dinamica
 
@@ -40,7 +41,7 @@ function App() {
               path="/detail/:productId"
               element={<ItemDetailContainer />}
             />
-            <Route path="*" element={<h1>404 Not Found</h1>} />
+            <Route path="*" element={<NotFound/>} />
           </Routes>
           <Footer />
         </BrowserRouter>

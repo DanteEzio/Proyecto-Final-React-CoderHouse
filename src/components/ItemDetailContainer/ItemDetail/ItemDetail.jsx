@@ -13,6 +13,9 @@ const ItemDetail = ({
   id,
   nombre,
   img,
+  img2,
+  img3,
+  img4,
   descripcion,
   sku,
   categoria,
@@ -46,7 +49,7 @@ const ItemDetail = ({
     <div className="containerDetail">
       <div className="container pt-5 pb-5 text-center productDetailC">
         <div className="row justify-content-center g-5">
-          <div className="col col-7 imgContainerDetail d-flex align-items-center">
+          <div className="col col-6 imgContainerDetail d-flex align-items-center">
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <Row>
                 <Col sm={3}>
@@ -63,7 +66,7 @@ const ItemDetail = ({
                     <Nav.Item>
                       <Nav.Link eventKey="second">
                         <img
-                          src={img}
+                          src={img2}
                           className="img-fluid selectIMGDetail"
                           alt="..."
                         />
@@ -72,7 +75,16 @@ const ItemDetail = ({
                     <Nav.Item>
                       <Nav.Link eventKey="third">
                         <img
-                          src={img}
+                          src={img3}
+                          className="img-fluid selectIMGDetail"
+                          alt="..."
+                        />
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="fourth">
+                        <img
+                          src={img4}
                           className="img-fluid selectIMGDetail"
                           alt="..."
                         />
@@ -91,14 +103,21 @@ const ItemDetail = ({
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
                       <img
-                        src={img}
+                        src={img2}
                         className="img-fluid productIMGDetail"
                         alt="..."
                       />
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       <img
-                        src={img}
+                        src={img3}
+                        className="img-fluid productIMGDetail"
+                        alt="..."
+                      />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="fourth">
+                      <img
+                        src={img4}
                         className="img-fluid productIMGDetail"
                         alt="..."
                       />

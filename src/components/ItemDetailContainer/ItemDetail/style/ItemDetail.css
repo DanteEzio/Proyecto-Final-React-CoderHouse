@@ -74,7 +74,7 @@
 }
 
 .selectIMGDetail{
-  max-width: 100px;
+  max-width: 80px;
   height: auto;
 }
 
@@ -96,7 +96,7 @@
 .cardBodyDetail{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
 }
 
 .cardProduct {
@@ -105,7 +105,7 @@
 }
 
 .descDetail{
-  padding-top: 20px;;
+  padding-top: 20px;
   text-decoration: none;
   color: #333333;
   font-family: "DINPro-Light";
@@ -116,10 +116,11 @@
 }
 
 .categoryDetail{
-  font-family: "GeForce-Regular";
-  color: #333333;
   padding-top: 10px;
   font-size: 18px;
+  /* padding: 10px 0; */
+  line-height: 24px;
+  font-family: "DINPro-Light";
 }
 
 .skuDetail {

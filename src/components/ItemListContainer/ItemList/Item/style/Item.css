@@ -99,7 +99,7 @@
   text-decoration: none;
   color: #333333;
   font-family: "GeForce-Regular";
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1em;
   text-transform: normal;
   font-weight: bold;
@@ -117,16 +117,13 @@
   text-transform: normal;
 }
 
-/* .precioReal{
-  padding-top: 12px;
-} */
-
 .precioProducto {
   color: #4d4d4d;
   font-family: "GeForce-Regular";
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1em;
   text-transform: normal;
+  font-weight: bold;
 }
 
 .precioProducto > s {
@@ -144,29 +141,11 @@
   text-decoration: none;
   color: #4d4d4d;
   font-family: "GeForce-Regular";
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1em;
   text-transform: normal;
 }
 
 .LinkDetalles:hover{
   color: #76b900;
-}
-
-.addCar {
-  /* margin: 120px 0px 60px 0px; */
-  padding: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "DINPro-Light";
-  background-color: #76b900;
-  border-color: #76b900;
-  border-radius: 0;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.addCar:hover {
-  background-color: #86d103;
-  border-color: #86d103;
 }
