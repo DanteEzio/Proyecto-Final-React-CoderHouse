@@ -8,7 +8,6 @@ import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 
-
 const ItemDetail = ({
   id,
   nombre,
@@ -24,10 +23,9 @@ const ItemDetail = ({
   pDescuento,
 }) => {
   const [quantityToAdd, setQuantityToAdd] = useState(0);
-  // console.log(quantityToAdd)
+  console.log(quantityToAdd);
 
-  const {addItem} = useContext(CartContext)
-  
+  const { addItem, getProductQuantity } = useContext(CartContext);
 
   //Esta función me permite guardar lo que va a agregar el usuario al carrito
   const handleOnAdd = (quantity) => {
@@ -39,17 +37,22 @@ const ItemDetail = ({
     // setCart([{id, nombre, pDescuento, quantity}]);
 
     const productToAdd = {
-      id, nombre, pDescuento, quantity
-    }
+      id,
+      nombre,
+      pDescuento,
+      quantity,
+    };
 
-    addItem(productToAdd)
-  }
+    addItem(productToAdd);
+  };
+
+  const productAddedQuantity = getProductQuantity(id);
 
   return (
     <div className="containerDetail">
       <div className="container pt-5 pb-5 text-center productDetailC">
         <div className="row justify-content-center g-5">
-          <div className="col col-6 imgContainerDetail d-flex align-items-center">
+          <div className="col col-lg-6 col-md-12 col-11 imgContainerDetail d-flex align-items-center">
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <Row>
                 <Col sm={3}>
@@ -127,7 +130,7 @@ const ItemDetail = ({
               </Row>
             </Tab.Container>
           </div>
-          <div className="card col-4 cardDetail">
+          <div className="card col-lg-4 col-md-11 col-10 cardDetail">
             <div className="card-body cardBodyDetail">
               <h5 className="card-title descDetail">{descripcion}</h5>
               <h6 className="card-subtitle mb-2 text-muted skuDetail">
@@ -145,8 +148,16 @@ const ItemDetail = ({
               <p className="card-text pt-4 stockDetail">
                 Disponibles: {stock}pzs.
               </p>
-              <ButtonCount onAdd={handleOnAdd} stock={stock} />
-              {/* <InputCount onAdd={handleOnAdd} stock={stock} /> */}
+              <ButtonCount
+                onAdd={handleOnAdd}
+                stock={stock}
+                initial={productAddedQuantity}
+              />
+              {/* <InputCount
+                onAdd={handleOnAdd}
+                stock={stock}
+                initial={productAddedQuantity}
+              /> */}
             </div>
           </div>
         </div>

@@ -1,8 +1,7 @@
 import "./style/Item.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMagnifyingGlass,
-  faCartShopping,
+  faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 // import ButtonAdd from "../../../ButtonAdd/ButtonAdd";

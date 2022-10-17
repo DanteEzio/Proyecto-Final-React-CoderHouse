@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { getProduct } from "../Products/AsyncMock";
-import { useParams } from 'react-router-dom';
+// import { getProduct } from "../Products/AsyncMock";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../services/firebase";
 
-const ItemDetailContainer = ({setCart}) => {
+const ItemDetailContainer = ({ setCart }) => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -13,15 +15,30 @@ const ItemDetailContainer = ({setCart}) => {
   const { productId } = useParams();
 
   useEffect(() => {
-    getProduct(parseInt(productId))
-      .then((response) => {
-        setProduct(response);
+    const docRef = doc(db, "products", productId);
+    // console.log(docRef)
+
+    getDoc(docRef)
+      .then((doc) => {
+        const data = doc.data();
+
+        const productAdapted = { id: doc.id, ...data };
+
+        setProduct(productAdapted)
       })
       .finally(() => {
         setLoading(false);
       });
+
+    // getProduct(parseInt(productId))
+    //   .then((response) => {
+    //     setProduct(response);
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
   }, []);
-//   console.log(product);
+  //   console.log(product);
 
   if (loading) {
     // return <h1>Cargando...</h1>;

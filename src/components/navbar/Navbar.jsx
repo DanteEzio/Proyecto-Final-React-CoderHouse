@@ -1,8 +1,11 @@
 import { Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import LogoNvidia from "./LogoNvidia/LogoNvidia";
+import { useState, useEffect } from "react";
 import "./StyleNavbar/NavbarStyles.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import { collection, getDocs, query, orderBy } from "firebase/firestore"; // -> Vamos a traernos los documentos de la coleccion de categorias
+import { db } from "../../services/firebase";
 
 // import React, { useState, useEffect } from "react";
 
@@ -23,6 +26,24 @@ export const NavbarNvidia = () => {
   //   window.addEventListener("scroll", handleScroll);
 
   // }, []);
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const collectionRef = query(collection(db, "categories"), orderBy("order"));
+
+    getDocs(collectionRef).then((response) => {
+      // console.log(response)
+      const categoriesAdapted = response.docs.map((doc) => {
+        const data = doc.data();
+        return { id: doc.id, ...data };
+      });
+
+      setCategories(categoriesAdapted);
+    });
+  }, []);
+
+  console.log(categories)
 
   return (
     <>
@@ -55,8 +76,19 @@ export const NavbarNvidia = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="d-flex align-items-center justify-content-start flex-grow-1 linksMenu">
-                <NavLink
-                  to="/category/Laptops"
+                {categories.map((cat) => (
+                  <NavLink
+                    key={cat.id}
+                    to={`/category/${cat.slug}`}
+                    className={({ isActive }) =>
+                      isActive ? "activeCategory" : "inactiveCategory"
+                    }
+                  >
+                    {cat.label}
+                  </NavLink>
+                ))}
+                {/* <NavLink
+                  to="/category/laptops"
                   className={({ isActive }) =>
                     isActive ? "activeCategory" : "inactiveCategory"
                   }
@@ -64,7 +96,7 @@ export const NavbarNvidia = () => {
                   Laptops
                 </NavLink>
                 <NavLink
-                  to="/category/Tarjetas Graficas"
+                  to="/category/tarjetas-graficas"
                   className={({ isActive }) =>
                     isActive
                       ? "activeCategory mx-lg-3 mx-md-3"
@@ -74,13 +106,13 @@ export const NavbarNvidia = () => {
                   Tarjetas Gráficas
                 </NavLink>
                 <NavLink
-                  to="/category/Monitores"
+                  to="/category/monitores"
                   className={({ isActive }) =>
                     isActive ? "activeCategory" : "inactiveCategory"
                   }
                 >
                   Monitores G-SYNC
-                </NavLink>
+                </NavLink> */}
               </Nav>
               <Form className="d-flex">
                 <CartWidget />

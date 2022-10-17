@@ -89,6 +89,11 @@
   --bs-nav-link-hover-color: #76b900;
 }
 
+.productIMGDetail{
+  max-height: 500px;
+  margin: 0 auto;
+}
+
 .cardDetail{
   border-radius: 0;
 }

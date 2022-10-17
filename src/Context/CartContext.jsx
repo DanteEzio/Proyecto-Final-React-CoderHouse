@@ -17,15 +17,27 @@ export const CartContextProvider = ({ children }) => {
     if (!isInCart(productToAdd.id)) {
       setCart([...cart, productToAdd]);
     } else {
-      Swal.fire({
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        title: `"${productToAdd.nombre}"\n Ya Esta Agregado al Carrito`,
-        icon: "warning",
-        background: "rgba(235, 137, 25, 0.726)",
-        color: "#eee",
-      });
+      const carUpdated = cart.map(prod => {
+        if (prod.id === productToAdd.id) {
+          const productUpdated = {
+            ...prod,
+            quantity: productToAdd.quantity,
+          };
+          return productUpdated; //Si es igual retorno el producto actualizado
+        } else {
+          return prod // En caso contrario retorno el mismo producto
+        }
+      })
+      setCart(carUpdated);
+      // Swal.fire({
+      //   showConfirmButton: false,
+      //   timer: 3000,
+      //   timerProgressBar: true,
+      //   title: `"${productToAdd.nombre}"\n Ya Esta Agregado al Carrito`,
+      //   icon: "warning",
+      //   background: "rgba(235, 137, 25, 0.726)",
+      //   color: "#eee",
+      // });
     }
   };
 
@@ -53,8 +65,15 @@ export const CartContextProvider = ({ children }) => {
     return totalQuantity;
   };
 
+  //Esta funcion me permite ver en tiempo real la cantidad agregada que tenemos en el carrito
+  const getProductQuantity = (id) => {
+    const product = cart.find(prod => prod.id === id);
+
+    return product?.quantity
+  }
+
   return (
-    <CartContext.Provider value={{ addItem, removeItem, totalQuantity }}>
+    <CartContext.Provider value={{cart, addItem, removeItem, totalQuantity, getProductQuantity }}>
       {children}
     </CartContext.Provider>
   );

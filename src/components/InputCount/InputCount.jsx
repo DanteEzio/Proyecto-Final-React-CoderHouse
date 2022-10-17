@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 // import ButtonAdd from "../ButtonAdd/ButtonAdd";
 
-const InputCount = ({ stock = 1, initial = 1, onAdd }) => {
+const InputCount = ({ stock, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const handleChange = (e) => {
