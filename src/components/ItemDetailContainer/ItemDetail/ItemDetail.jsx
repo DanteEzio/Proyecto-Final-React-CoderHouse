@@ -7,6 +7,8 @@ import Tab from "react-bootstrap/Tab";
 import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
+import Swal from "sweetalert2";
+
 
 const ItemDetail = ({
   id,
@@ -29,7 +31,7 @@ const ItemDetail = ({
 
   //Esta función me permite guardar lo que va a agregar el usuario al carrito
   const handleOnAdd = (quantity) => {
-    console.log("Agregue al carrito: " + quantity);
+    // console.log("Agregue al carrito: " + quantity);
     // console.log(quantity);
     setQuantityToAdd(quantity);
 
@@ -41,9 +43,22 @@ const ItemDetail = ({
       nombre,
       pDescuento,
       quantity,
+      img,
     };
 
     addItem(productToAdd);
+
+    Swal.fire({
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      title: `"${nombre}" Se Agrego Correctamente al Carrito`,
+      icon: "success",
+      confirmButtonColor: "#76b900",
+      background: "#1a1a1ad2",
+      backdrop: "#75b90030",
+      color: "#eee",
+    });
   };
 
   const productAddedQuantity = getProductQuantity(id);
