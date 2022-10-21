@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
-import Count from "./Count/Count";
-import Swal from "sweetalert2";
+
 
 const Cart = () => {
   const {
@@ -16,7 +15,6 @@ const Cart = () => {
     removeItem,
     clearCart,
     getProductTotalPrice,
-    getProductQuantity,
   } = useContext(CartContext);
 
   

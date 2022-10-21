@@ -1,42 +1,32 @@
 import { useState, useEffect } from "react";
-// import { getProduct } from "../Products/AsyncMock";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../services/firebase";
+import { getProductsById } from "../../services/firebase/firestore";
 
 const ItemDetailContainer = ({ setCart }) => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   //El hook UseParams() nos permite agarrar los parametros de la URL
   //Desestructutamos para poder traernos nuestro productID
   const { productId } = useParams();
 
   useEffect(() => {
-    const docRef = doc(db, "products", productId);
-    // console.log(docRef)
 
-    getDoc(docRef)
-      .then((doc) => {
-        const data = doc.data();
-
-        const productAdapted = { id: doc.id, ...data };
-
-        setProduct(productAdapted)
+    getProductsById(productId)
+      .then((product) => {
+        // console.log(product);
+        setProduct(product);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
       })
       .finally(() => {
         setLoading(false);
       });
-
-    // getProduct(parseInt(productId))
-    //   .then((response) => {
-    //     setProduct(response);
-    //   })
-    //   .finally(() => {
-    //     setLoading(false);
-    //   });
   }, []);
   //   console.log(product);
 
@@ -44,6 +34,10 @@ const ItemDetailContainer = ({ setCart }) => {
     // return <h1>Cargando...</h1>;
     return <LoadingWidget />;
   }
+
+   if (error) {
+     return <h1>Hubo un Error</h1>;
+   }
 
   return (
     <div>

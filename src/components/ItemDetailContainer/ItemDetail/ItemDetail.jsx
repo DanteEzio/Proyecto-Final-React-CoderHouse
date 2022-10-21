@@ -8,9 +8,7 @@ import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 import ButtonCart from "./ButtonCart/ButtonCart";
-
 
 const ItemDetail = ({
   id,
@@ -46,7 +44,7 @@ const ItemDetail = ({
       pDescuento,
       quantity,
       img,
-      stock
+      stock,
     };
 
     addItem(productToAdd);
@@ -173,9 +171,7 @@ const ItemDetail = ({
                   initial={productAddedQuantity}
                 />
               ) : (
-                <Link to="/cart">
-                  <ButtonCart/>
-                </Link>
+                <ButtonCart />
               )}
               {/* <InputCount
                 onAdd={handleOnAdd}

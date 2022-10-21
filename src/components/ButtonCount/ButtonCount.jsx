@@ -6,7 +6,7 @@ import {
   faMinus,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 // import ButtonAdd from "../ButtonAdd/ButtonAdd";
 
 const ButtonCount = ({ onAdd, stock, initial = 1 }) => {

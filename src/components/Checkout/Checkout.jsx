@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { CartContext } from "../../Context/CartContext";
 import {

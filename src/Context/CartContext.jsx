@@ -12,7 +12,7 @@ export const CartContextProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0); // Precio total de los prod en el carrito
   const [productTotalPrice, setProductTotalPrice] = useState(0); //
 
-  console.log(cart);
+  // console.log(cart);
 
   //Esta función se va a encargar de setear el estado con un array y también nos va ayudar la parte del spread a no pisar lo que ya teniamos.
   const addItem = (productToAdd) => {
@@ -65,26 +65,7 @@ export const CartContextProvider = ({ children }) => {
 
   // ************************************************
 
-  // useEffect(() => {
-  //   const productTotalQuantity = getProductTotalQuantity();
-  //   setProductTotalQuantity(productTotalQuantity);
-  // }, [cart]);
-
-  // const getProductTotalQuantity = (id) => {
-  //   // const cartWithOutItem = cart.filter((prod) => prod.id !== id);
-
-  //   let productTotalQuantity = 0; //Contador
-
-  //   cart.forEach((prod) => {
-  //     if (prod.id === id) {
-  //       productTotalQuantity += prod.quantity;
-  //     }
-  //   });
-
-  //   return productTotalQuantity;
-  // };
-
-  // ************************************************
+ 
 
   //Esta funcion me permite ver en tiempo real la cantidad agregada que tenemos en el carrito
   const getProductQuantity = (id) => {
@@ -155,6 +136,7 @@ export const CartContextProvider = ({ children }) => {
         totalPrice,
         clearCart,
         getProductTotalPrice,
+        productTotalPrice,
       }}
     >
       {children}
