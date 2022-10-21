@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"; //Esta funcion nos va a permitir conectar la BD
 
 // Your web app's Firebase configuration
+//Aqui se ingresan las credenciales para accesar a la BD
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
   authDomain: process.env.REACT_APP_authDomain,
