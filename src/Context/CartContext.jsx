@@ -31,15 +31,6 @@ export const CartContextProvider = ({ children }) => {
         }
       });
       setCart(carUpdated);
-      // Swal.fire({
-      //   showConfirmButton: false,
-      //   timer: 3000,
-      //   timerProgressBar: true,
-      //   title: `"${productToAdd.nombre}"\n Ya Esta Agregado al Carrito`,
-      //   icon: "warning",
-      //   background: "rgba(235, 137, 25, 0.726)",
-      //   color: "#eee",
-      // });
     }
   };
 
@@ -71,6 +62,27 @@ export const CartContextProvider = ({ children }) => {
 
     return totalQuantity;
   };
+
+  // ************************************************
+
+  // useEffect(() => {
+  //   const productTotalQuantity = getProductTotalQuantity();
+  //   setProductTotalQuantity(productTotalQuantity);
+  // }, [cart]);
+
+  // const getProductTotalQuantity = (id) => {
+  //   // const cartWithOutItem = cart.filter((prod) => prod.id !== id);
+
+  //   let productTotalQuantity = 0; //Contador
+
+  //   cart.forEach((prod) => {
+  //     if (prod.id === id) {
+  //       productTotalQuantity += prod.quantity;
+  //     }
+  //   });
+
+  //   return productTotalQuantity;
+  // };
 
   // ************************************************
 

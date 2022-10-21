@@ -15,17 +15,18 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
   const increment = () => {
     if (count < stock) {
       setCount(count + 1);
-    } else {
-      Swal.fire({
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        title: `Solo Contamos con ${stock}pzs Disponibles`,
-        icon: "warning",
-        background: "rgba(235, 137, 25, 0.726)",
-        color: "#eee",
-      });
     }
+    // else {
+    //   Swal.fire({
+    //     showConfirmButton: false,
+    //     timer: 3000,
+    //     timerProgressBar: true,
+    //     title: `"${stock} Piezas Disponibles"`,
+    //     icon: "warning",
+    //     background: "rgba(235, 137, 25, 0.726)",
+    //     color: "#eee",
+    //   });
+    // }
   };
 
   const decrement = () => {
@@ -43,7 +44,10 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
               <button
                 onClick={decrement}
                 type="button"
-                className="btn btn-danger iCount btn-sm"
+                className={ stock > 0
+              ? "btn btn-danger iCount btn-sm"
+              : "btn btn-danger iCount btn-sm disabled"
+          }
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
@@ -55,7 +59,10 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
               <button
                 onClick={increment}
                 type="button"
-                className="btn btn-success btn-sm"
+                className={ stock > 0
+              ? "btn btn-success btn-sm"
+              : "btn btn-success btn-sm disabled"
+          }
               >
                 <FontAwesomeIcon icon={faPlus} />
               </button>
@@ -66,7 +73,11 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
       <div className="d-flex justify-content-center">
         <button
           type="button"
-          className="btn btn-success addCarDetail"
+          // className="btn btn-success addCarDetail"
+          className={ stock > 0
+              ? "btn btn-success addCarDetail"
+              : "btn btn-success addCarDetail disabled"
+          }
           onClick={() => onAdd(count)}
         >
           <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito

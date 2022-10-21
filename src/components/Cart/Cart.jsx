@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import Count from "./Count/Count";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const {
@@ -14,6 +16,7 @@ const Cart = () => {
     removeItem,
     clearCart,
     getProductTotalPrice,
+    getProductQuantity,
   } = useContext(CartContext);
 
   
@@ -31,11 +34,13 @@ const Cart = () => {
                 {cart.map((product) => (
                   <tr key={product.id}>
                     <th scope="col">
-                      <img
-                        src={product.img}
-                        className="card-img-top CartImg bi-circle-square"
-                        alt="..."
-                      />
+                      <Link to={`/detail/${product.id}`}>
+                        <img
+                          src={product.img}
+                          className="card-img-top CartImg bi-circle-square"
+                          alt="..."
+                        />
+                      </Link>
                     </th>
                     <th scope="col">{product.nombre}</th>
                     <th scope="col">

@@ -8,6 +8,8 @@ import ButtonCount from "../../ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import ButtonCart from "./ButtonCart/ButtonCart";
 
 
 const ItemDetail = ({
@@ -44,6 +46,7 @@ const ItemDetail = ({
       pDescuento,
       quantity,
       img,
+      stock
     };
 
     addItem(productToAdd);
@@ -67,7 +70,7 @@ const ItemDetail = ({
     <div className="containerDetail">
       <div className="container pt-5 pb-5 text-center productDetailC">
         <div className="row justify-content-center g-5">
-          <div className="col col-lg-6 col-md-12 col-11 imgContainerDetail d-flex align-items-center">
+          <div className="col col-lg-6 col-md-12 col-11 imgContainerDetail d-flex align-items-center justify-content-center">
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <Row>
                 <Col sm={3}>
@@ -163,11 +166,17 @@ const ItemDetail = ({
               <p className="card-text pt-4 stockDetail">
                 Disponibles: {stock}pzs.
               </p>
-              <ButtonCount
-                onAdd={handleOnAdd}
-                stock={stock}
-                initial={productAddedQuantity}
-              />
+              {quantityToAdd === 0 ? (
+                <ButtonCount
+                  onAdd={handleOnAdd}
+                  stock={stock}
+                  initial={productAddedQuantity}
+                />
+              ) : (
+                <Link to="/cart">
+                  <ButtonCart/>
+                </Link>
+              )}
               {/* <InputCount
                 onAdd={handleOnAdd}
                 stock={stock}
