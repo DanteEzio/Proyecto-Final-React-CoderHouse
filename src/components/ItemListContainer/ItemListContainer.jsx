@@ -41,7 +41,7 @@ export const ItemListContainer = ({ welcomePage }) => {
 
   // *** Mandamos a llamar nuestro "CustomHook" ***
   // Le pasamos una función de call back, es decir una funcion que se va a ejecutar adentro despues de ejecutar determinado codigo
-  const { data: products, error, loading } = useAsync(() => getProducts(categoryId), categoryId);
+  const { data: products, error, loading } = useAsync(() => getProducts(categoryId), [categoryId]);
 
 
   if (loading) {
