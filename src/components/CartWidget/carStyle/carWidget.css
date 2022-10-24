@@ -23,15 +23,15 @@
 }
 
 .contadorCarrito {
-  width: 25px;
-  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
   border-radius: 1em;
   font-family: "Go Medium";
   background-color: #76b900;
   color: #eeeeee;
   position: absolute;
-  margin-left: 10px;
-  margin-top: -5px;
+  margin-left: -35px;
+  margin-top: -1px;
   font-size: 18px;
   font-weight: 500;
 }

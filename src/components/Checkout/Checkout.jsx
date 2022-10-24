@@ -15,9 +15,13 @@ import { db } from "../../services/firebase";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
 // import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { useForm } from "react-hook-form";
+// import { createOrder } from "../../services/firebase/firestore";
+// import { useParams } from "react-router-dom";
 
 const Checkout = () => {
+  // const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const { cart, totalPrice, clearCart } = useContext(CartContext);
   const {
@@ -28,7 +32,6 @@ const Checkout = () => {
 
   // const onSubmit = (data) => {
   //   alert(JSON.stringify(data));
-
   // };
 
   const createOrder = async (data) => {
@@ -45,7 +48,7 @@ const Checkout = () => {
         total: totalPrice,
       };
 
-      console.log(objOrder);
+      // console.log(objOrder);
 
       // const collectionRef = collection(db, "orders");
       // addDoc(collectionRef, objOrder);
@@ -85,7 +88,7 @@ const Checkout = () => {
 
         // console.log(`El id de su orden es: ${orderAdded.id}`);
         clearCart(); // Limpiamos el carrito para que no duplique su pedido
-        
+
         Swal.fire({
           showConfirmButton: true,
           title: `Su compra se realizo de manera éxitosa`,
@@ -99,15 +102,38 @@ const Checkout = () => {
         console.log("Hay productos fuera de stock");
       }
     } catch (error) {
-      console.log(error);
+      setError(error);
     } finally {
       setLoading(false);
     }
   };
 
+  // const { data } = useParams();
+
+  //   useEffect(() => {
+  //     setLoading(true);
+
+  //     createOrder(data, cart, totalPrice, clearCart)
+  //       .then((order) => {
+  //         setOrder(order);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //         setError(true);
+  //       })
+  //       .finally(() => {
+  //         setLoading(false);
+  //       });
+  //   }, []);
+
   if (loading) {
     return <LoadingWidget />;
   }
+
+  if (error) {
+    return <h1>Hubo un Error</h1>;
+  }
+
   return (
     <div className="formCheckout">
       <div className="container p-4">

@@ -7,6 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { collection, getDocs, query, orderBy } from "firebase/firestore"; // -> Vamos a traernos los documentos de la coleccion de categorias
 import { db } from "../../services/firebase";
 
+
 // import React, { useState, useEffect } from "react";
 
 export const NavbarNvidia = () => {

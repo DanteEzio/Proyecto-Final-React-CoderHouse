@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 // import InputCount from "../../InputCount/InputCount";
-import ButtonCount from "../../ButtonCount/ButtonCount";
+import ButtonCount from "./ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import Swal from "sweetalert2";
