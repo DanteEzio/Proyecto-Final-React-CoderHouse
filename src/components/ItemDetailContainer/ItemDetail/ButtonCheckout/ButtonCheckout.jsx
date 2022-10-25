@@ -1,15 +1,15 @@
-import "./ButtonCart.css";
+import "./ButtonCheckout.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const ButtonCart = () => {
+const ButtonCheckout = () => {
   return (
     <>
       <div>
-        <Link to="/cart" className="buttonCartDetail mx-auto">
+        <Link to="/checkout" className="buttonCartDetail mx-auto">
           <span></span>
           <span></span>
           <span></span>
@@ -19,6 +19,6 @@ const ButtonCart = () => {
       </div>
     </>
   );
-}
+};
 
-export default ButtonCart
+export default ButtonCheckout;

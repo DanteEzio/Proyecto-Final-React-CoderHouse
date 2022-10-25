@@ -1,16 +1,18 @@
 import { Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import LogoNvidia from "./LogoNvidia/LogoNvidia";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./StyleNavbar/NavbarStyles.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 import { collection, getDocs, query, orderBy } from "firebase/firestore"; // -> Vamos a traernos los documentos de la coleccion de categorias
 import { db } from "../../services/firebase";
-
+import { CartContext } from "../../Context/CartContext";
 
 // import React, { useState, useEffect } from "react";
 
 export const NavbarNvidia = () => {
+  const { totalQuantity } = useContext(CartContext);
+
   // const [backgroundNav, setBackgroundNav] = useState("light");
 
   // useEffect(() => {
@@ -44,7 +46,7 @@ export const NavbarNvidia = () => {
     });
   }, []);
 
-  console.log(categories)
+  // console.log(categories);
 
   return (
     <>
@@ -116,7 +118,13 @@ export const NavbarNvidia = () => {
                 </NavLink> */}
               </Nav>
               <Form className="d-flex">
-                <CartWidget />
+                {totalQuantity === 0 ? (
+                  <CartWidget />
+                ) : (
+                  <Link to="/Cart">
+                    <CartWidget />
+                  </Link>
+                )}
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

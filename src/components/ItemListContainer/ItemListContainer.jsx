@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
 import { getProducts } from "../../services/firebase/firestore";
 import { useAsync } from "../../hooks/useAsync";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 // Aquí estamos recibiendo el Saludo de la Página por props
 export const ItemListContainer = ({ welcomePage }) => {
@@ -41,8 +42,11 @@ export const ItemListContainer = ({ welcomePage }) => {
 
   // *** Mandamos a llamar nuestro "CustomHook" ***
   // Le pasamos una función de call back, es decir una funcion que se va a ejecutar adentro despues de ejecutar determinado codigo
-  const { data: products, error, loading } = useAsync(() => getProducts(categoryId), [categoryId]);
-
+  const {
+    data: products,
+    error,
+    loading,
+  } = useAsync(() => getProducts(categoryId), [categoryId]);
 
   if (loading) {
     // return <h1>Loading...</h1>;
@@ -55,10 +59,16 @@ export const ItemListContainer = ({ welcomePage }) => {
 
   return (
     <>
-      <div className="ItemListContainer">
-        <h1 className="TituloPrincipal">{welcomePage}</h1>
-        <ItemList products={products} />
-      </div>
+      {Object.entries(products).length > 0 ? (
+        <div className="ItemListContainer">
+          <h1 className="ItemListTitle">{categoryId}</h1>
+          <ItemList products={products} />
+        </div>
+      ) : (
+        <PageNotFound
+          message={`No encontramos la categoría "${categoryId}"`}
+        />
+      )}
     </>
   );
 };

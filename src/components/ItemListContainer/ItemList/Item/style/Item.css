@@ -75,7 +75,7 @@
 
 .cardProduct {
   border: none;
-  background-color: #eee;
+  background-color: white !important;
   box-shadow: 0 0 15px 3px #75b900c2;
 }
 

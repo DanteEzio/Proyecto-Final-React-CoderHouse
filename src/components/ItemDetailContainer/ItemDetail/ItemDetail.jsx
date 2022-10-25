@@ -8,7 +8,7 @@ import ButtonCount from "./ButtonCount/ButtonCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import Swal from "sweetalert2";
-import ButtonCart from "./ButtonCart/ButtonCart";
+import ButtonCheckout from "./ButtonCheckout/ButtonCheckout";
 
 const ItemDetail = ({
   id,
@@ -25,7 +25,7 @@ const ItemDetail = ({
   pDescuento,
 }) => {
   const [quantityToAdd, setQuantityToAdd] = useState(0);
-  console.log(quantityToAdd);
+  // console.log(quantityToAdd);
 
   const { addItem, getProductQuantity } = useContext(CartContext);
 
@@ -171,7 +171,7 @@ const ItemDetail = ({
                   initial={productAddedQuantity}
                 />
               ) : (
-                <ButtonCart />
+                <ButtonCheckout />
               )}
               {/* <InputCount
                 onAdd={handleOnAdd}

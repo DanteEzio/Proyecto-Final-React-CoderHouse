@@ -5,7 +5,7 @@
 .formContainerCheckout {
   /* background: #8d8f176c; */
   font-family: "Go Medium";
-  width: 60%;
+  /* width: 60%; */
   margin: 0 auto;
   color: #76b900;
   background: linear-gradient(
@@ -17,11 +17,15 @@
   );
 }
 
+.formTitleCheckout{
+  font-size: 25px;
+}
+
 .formContainerCheckout > .mb-3 > label {
   font-family: "DINPro-Light";
   color: #eee;
   text-align: start;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .formContainerCheckout > .mb-3 > input {
@@ -78,4 +82,52 @@
   color: var(--green);
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.7),
     0 0 9px 3px rgba(27, 253, 156, 0.7);
+}
+
+.resumenTitle > h1{
+  font-family: "Go Medium";
+  font-size: 25px;
+  color: #76b900;
+  padding: 0.5em;
+  background: linear-gradient(
+    to right,
+    rgba(17, 209, 75, 0.1) 1%,
+    transparent 40%,
+    transparent 60%,
+    rgba(17, 209, 75, 0.1) 100%
+  );
+  border: 1px solid #eee;
+}
+
+.tablaResumenPedido{
+  color: #eee;
+  text-align: center;
+}
+
+.headerResumenPedido{
+  font-size: 17px;
+}
+
+.bodyResumenPedido{
+  font-size: 15px;
+}
+
+.footerResumenPedido{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.compraRealizada{
+  font-family: "Go Medium";
+  font-size: 25px;
+  color: #76b900;
+  padding: 0.5em;
+  background: linear-gradient(
+    to right,
+    rgba(17, 209, 75, 0.1) 1%,
+    transparent 40%,
+    transparent 60%,
+    rgba(17, 209, 75, 0.1) 100%
+  );
+  border: 1px solid #eee;
 }

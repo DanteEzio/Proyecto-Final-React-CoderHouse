@@ -1,14 +1,28 @@
 .ItemListContainer {
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
+  background: radial-gradient(circle, #240015 0%, #12000b 100%);
+  animation: hueRotate 6s ease-in-out 3s infinite;
   padding: 2em 0;
   text-align: center;
 }
 
-.TituloPrincipal {
+.ItemListTitle {
   color: #76b900;
   font-family: "GeForce-Bold";
   padding-bottom: 10px;
   text-transform: uppercase;
   font-size: 40px;
   line-height: 1em;
+}
+
+@keyframes hueRotate{
+  0%  {
+    filter: hue-rotate(0deg);
+  }
+  50%  {
+    filter: hue-rotate(-120deg);
+  }
+  100%  {
+    filter: hue-rotate(0deg);
+  }
 }

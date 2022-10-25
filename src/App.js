@@ -7,7 +7,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import { CartContextProvider } from "./Context/CartContext";
-import NotFound from "./components/404-NotFound/NotFound";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 
@@ -45,7 +45,10 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<NotFound />} />
+            <Route
+              path="*"
+              element={<PageNotFound message="Página No Encontrada" />}
+            />
           </Routes>
           <Footer />
         </BrowserRouter>
