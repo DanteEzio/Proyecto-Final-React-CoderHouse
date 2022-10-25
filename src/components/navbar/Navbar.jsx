@@ -13,23 +13,6 @@ import { CartContext } from "../../Context/CartContext";
 export const NavbarNvidia = () => {
   const { totalQuantity } = useContext(CartContext);
 
-  // const [backgroundNav, setBackgroundNav] = useState("light");
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-
-  //     const backgroundNav =
-  //       window.scrollY >= 80 ? "rgb(190, 184, 184)" : "light";
-
-  //     setBackgroundNav(backgroundNav);
-
-  //     return() => window.removeEventListener("scroll", handleScroll);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  // }, []);
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

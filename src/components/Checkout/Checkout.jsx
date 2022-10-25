@@ -23,13 +23,8 @@ const Checkout = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const {
-    cart,
-    totalPrice,
-    clearCart,
-    totalQuantity,
-    getProductTotalPrice,
-  } = useContext(CartContext);
+  const { cart, totalPrice, clearCart, totalQuantity, getProductTotalPrice } =
+    useContext(CartContext);
   const {
     register,
     formState: { errors },
