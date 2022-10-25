@@ -5,13 +5,14 @@ import {
   orderBy,
   getDoc,
   doc,
-//   writeBatch,
-//   addDoc,
-//   documentId,
+  writeBatch,
+  addDoc,
+  documentId,
 } from "firebase/firestore"; // -> Esta función nos va a permitir poder consultar todos nuestros productos
 import { db } from "."; // -> Recuperamos la direccion de nuestra BD
 import { collection } from "firebase/firestore"; //de que coleccion de mi bd debo traer los datos, con esta funcion creo toda la referencia completa de los datos que quiero obtener
 // import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 export const getProducts = (categoryId) => {
   return new Promise((resolve, reject) => {
@@ -59,76 +60,74 @@ export const getProductsById = (productId) => {
   });
 };
 
-// export const createOrder = (data, cart, totalPrice, clearCart) => {
-//   return new Promise((resolve, reject) => {
-//     const objOrder = {
-//       buyer: {
-//         name: data?.name,
-//         phone: data?.phone,
-//         email: data?.email,
-//       },
-//       items: cart,
-//       total: totalPrice,
-//     };
+ export const createOrder = async (data, cart, totalPrice, clearCart) => {
+   
+   console.log(data);
+   console.log(cart)
+   console.log(totalPrice)
+   console.log(clearCart);
+   
+   try {
+     const objOrder = {
+       buyer: {
+         name: data?.name,
+         phone: data?.phone,
+         email: data?.email,
+       },
+       items: cart,
+       total: totalPrice,
+     };
 
-//     // console.log(objOrder);
 
-//     // const collectionRef = collection(db, "orders");
-//     // addDoc(collectionRef, objOrder);
+     const ids = cart.map((prod) => String(prod.id));
+     const productsRef = collection(db, "products");
 
-//     cart = { ...cart };
+     const productsAddedFromFirestore = await getDocs(
+       query(productsRef, where(documentId(), "in", ids))
+     );
+     const { docs } = productsAddedFromFirestore;
 
-//     const ids = cart.map((prod) => String(prod.id));
-//     const productsRef = collection(db, "products");
+     const batch = writeBatch(db);
+     const outOfStock = [];
 
-//     const productsAddedFromFirestore = getDocs(
-//       query(productsRef, where(documentId(), "in", ids))
-//     );
-//     const { docs } = productsAddedFromFirestore;
+     docs.forEach((doc) => {
+       const dataDoc = doc.data();
+       const stockDb = dataDoc.stock;
 
-//     const batch = writeBatch(db);
-//     const outOfStock = [];
+       const productAddedToCart = cart.find(
+         (prod) => String(prod.id) === doc.id
+       );
+       const prodQuantity = productAddedToCart?.quantity;
 
-//     docs.forEach((doc) => {
-//       const dataDoc = doc.data();
-//       const stockDb = dataDoc.stock;
+       if (stockDb >= prodQuantity) {
+         batch.update(doc.ref, { stock: stockDb - prodQuantity });
+       } else {
+         outOfStock.push({ id: doc.id, ...dataDoc });
+       }
+     });
 
-//       const productAddedToCart = cart.find(
-//         (prod) => String(prod.id) === doc.id
-//       );
-//       const prodQuantity = productAddedToCart?.quantity;
+     if (outOfStock.length === 0) {
+       await batch.commit();
 
-//       if (stockDb >= prodQuantity) {
-//         batch.update(doc.ref, { stock: stockDb - prodQuantity });
-//       } else {
-//         outOfStock.push({ id: doc.id, ...dataDoc });
-//       }
-//     });
+       const orderRef = collection(db, "orders");
+       const orderAdded = await addDoc(orderRef, objOrder);
 
-//     if (outOfStock.length === 0) {
-//       batch.commit();
+       // console.log(`El id de su orden es: ${orderAdded.id}`);
+       clearCart(); // Limpiamos el carrito para que no duplique su pedido
 
-//       const orderRef = collection(db, "orders");
-//       const orderAdded = addDoc(orderRef, objOrder);
-
-//       resolve(orderAdded).catch((error) => {
-//         reject(error);
-//       });
-
-//       // console.log(`El id de su orden es: ${orderAdded.id}`);
-//       clearCart(); // Limpiamos el carrito para que no duplique su pedido
-
-//       Swal.fire({
-//         showConfirmButton: true,
-//         title: `Su compra se realizo de manera éxitosa`,
-//         text: `Su # de orden es: ${orderAdded.id}`,
-//         confirmButtonText: "Deacuerdo",
-//         icon: "success",
-//         background: "#75b900ab",
-//         color: "#eee",
-//       });
-//     } else {
-//       console.log("Hay productos fuera de stock");
-//     }
-//   });
-// };
+       Swal.fire({
+         showConfirmButton: true,
+         title: `Su compra se realizo de manera éxitosa`,
+         text: `Su # de orden es: ${orderAdded.id}`,
+         confirmButtonText: "Deacuerdo",
+         icon: "success",
+         background: "#75b900ab",
+         color: "#eee",
+       });
+     } else {
+       console.log("Hay productos fuera de stock");
+     }
+   } catch (error) {
+     console.log(error)
+   }
+ };

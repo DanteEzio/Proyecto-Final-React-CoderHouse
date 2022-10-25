@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import "./Checkout.css";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,24 +6,24 @@ import {
   faUser, faCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
-import {
-  getDocs,
-  addDoc,
-  collection,
-  where,
-  query,
-  documentId,
-  writeBatch,
-} from "firebase/firestore";
-import { db } from "../../services/firebase";
+// import {
+//   getDocs,
+//   addDoc,
+//   collection,
+//   where,
+//   query,
+//   documentId,
+//   writeBatch,
+// } from "firebase/firestore";
+// import { db } from "../../services/firebase";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
 // import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { useForm } from "react-hook-form";
-// import { createOrder } from "../../services/firebase/firestore";
-// import { useParams } from "react-router-dom";
+import { createOrder } from "../../services/firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Checkout = () => {
-  // const [order, setOrder] = useState({});
+  const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -41,100 +41,114 @@ const Checkout = () => {
     handleSubmit,
   } = useForm();
 
+  // const [data, setData] = useState({
+  //   name: "",
+  //   phone: "",
+  //   email: ""
+  // });
+
+   
+
   // const onSubmit = (data) => {
   //   alert(JSON.stringify(data));
   // };
 
-  const createOrder = async (data) => {
-    // Esto nos sirve para que el usuario no de click dos veces en el mismo boton
-    setLoading(true);
-    try {
-      const objOrder = {
-        buyer: {
-          name: data.name,
-          phone: data.phone,
-          email: data.email,
-        },
-        items: cart,
-        total: totalPrice,
-      };
+  // const createOrder = async (data) => {
+  //   // Esto nos sirve para que el usuario no de click dos veces en el mismo boton
+  //   setLoading(true);
+  //   try {
+  //     const objOrder = {
+  //       buyer: {
+  //         name: data.name,
+  //         phone: data.phone,
+  //         email: data.email,
+  //       },
+  //       items: cart,
+  //       total: totalPrice,
+  //     };
 
-      // console.log(objOrder);
+  //     // console.log(objOrder);
 
-      // const collectionRef = collection(db, "orders");
-      // addDoc(collectionRef, objOrder);
+  //     // const collectionRef = collection(db, "orders");
+  //     // addDoc(collectionRef, objOrder);
 
-      const ids = cart.map((prod) => String(prod.id));
-      const productsRef = collection(db, "products");
+  //     const ids = cart.map((prod) => String(prod.id));
+  //     const productsRef = collection(db, "products");
 
-      const productsAddedFromFirestore = await getDocs(
-        query(productsRef, where(documentId(), "in", ids))
-      );
-      const { docs } = productsAddedFromFirestore;
+  //     const productsAddedFromFirestore = await getDocs(
+  //       query(productsRef, where(documentId(), "in", ids))
+  //     );
+  //     const { docs } = productsAddedFromFirestore;
 
-      const batch = writeBatch(db);
-      const outOfStock = [];
+  //     const batch = writeBatch(db);
+  //     const outOfStock = [];
 
-      docs.forEach((doc) => {
-        const dataDoc = doc.data();
-        const stockDb = dataDoc.stock;
+  //     docs.forEach((doc) => {
+  //       const dataDoc = doc.data();
+  //       const stockDb = dataDoc.stock;
 
-        const productAddedToCart = cart.find(
-          (prod) => String(prod.id) === doc.id
-        );
-        const prodQuantity = productAddedToCart?.quantity;
+  //       const productAddedToCart = cart.find(
+  //         (prod) => String(prod.id) === doc.id
+  //       );
+  //       const prodQuantity = productAddedToCart?.quantity;
 
-        if (stockDb >= prodQuantity) {
-          batch.update(doc.ref, { stock: stockDb - prodQuantity });
-        } else {
-          outOfStock.push({ id: doc.id, ...dataDoc });
-        }
-      });
+  //       if (stockDb >= prodQuantity) {
+  //         batch.update(doc.ref, { stock: stockDb - prodQuantity });
+  //       } else {
+  //         outOfStock.push({ id: doc.id, ...dataDoc });
+  //       }
+  //     });
 
-      if (outOfStock.length === 0) {
-        await batch.commit();
+  //     if (outOfStock.length === 0) {
+  //       await batch.commit();
 
-        const orderRef = collection(db, "orders");
-        const orderAdded = await addDoc(orderRef, objOrder);
+  //       const orderRef = collection(db, "orders");
+  //       const orderAdded = await addDoc(orderRef, objOrder);
 
-        // console.log(`El id de su orden es: ${orderAdded.id}`);
-        clearCart(); // Limpiamos el carrito para que no duplique su pedido
+  //       // console.log(`El id de su orden es: ${orderAdded.id}`);
+  //       clearCart(); // Limpiamos el carrito para que no duplique su pedido
 
-        Swal.fire({
-          showConfirmButton: true,
-          title: `Su compra se realizo de manera éxitosa`,
-          text: `Su # de orden es: ${orderAdded.id}`,
-          confirmButtonText: "Deacuerdo",
-          icon: "success",
-          background: "#75b900ab",
-          color: "#eee",
-        });
-      } else {
-        console.log("Hay productos fuera de stock");
-      }
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //       Swal.fire({
+  //         showConfirmButton: true,
+  //         title: `Su compra se realizo de manera éxitosa`,
+  //         text: `Su # de orden es: ${orderAdded.id}`,
+  //         confirmButtonText: "Deacuerdo",
+  //         icon: "success",
+  //         background: "#75b900ab",
+  //         color: "#eee",
+  //       });
+  //     } else {
+  //       console.log("Hay productos fuera de stock");
+  //     }
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   // const { data } = useParams();
 
-  //   useEffect(() => {
-  //     setLoading(true);
+  const createOrder2 = (data) => {
+    
+    createOrder(data, cart, totalPrice, clearCart)
+      .then((order) => {
+        setOrder(order);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+  // useEffect(() => {
+  //     console.log("estoy en checkout" + data)
+  //   setLoading(true);
+    
+    
 
-  //     createOrder(data, cart, totalPrice, clearCart)
-  //       .then((order) => {
-  //         setOrder(order);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         setError(true);
-  //       })
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
   //   }, []);
 
   if (loading) {
@@ -260,7 +274,7 @@ const Checkout = () => {
                 </table>
                 <div className="mt-4 text-end">
                   <button
-                    onClick={handleSubmit(createOrder)}
+                    onClick={handleSubmit(createOrder2)}
                     type="submit"
                     className="btn btn-primary btnCheckout"
                   >
