@@ -1,10 +1,7 @@
-import { useState, useContext, useEffect } from "react";
 import "./Checkout.css";
-import Swal from "sweetalert2";
+import { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser, faCheck
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
 // import {
 //   getDocs,
@@ -20,7 +17,6 @@ import LoadingWidget from "../LoadingWidget/LoadingWidget";
 // import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { useForm } from "react-hook-form";
 import { createOrder } from "../../services/firebase/firestore";
-import { useParams } from "react-router-dom";
 
 const Checkout = () => {
   const [order, setOrder] = useState({});
@@ -32,7 +28,6 @@ const Checkout = () => {
     totalPrice,
     clearCart,
     totalQuantity,
-    removeItem,
     getProductTotalPrice,
   } = useContext(CartContext);
   const {
@@ -40,14 +35,6 @@ const Checkout = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-
-  // const [data, setData] = useState({
-  //   name: "",
-  //   phone: "",
-  //   email: ""
-  // });
-
-   
 
   // const onSubmit = (data) => {
   //   alert(JSON.stringify(data));
@@ -127,10 +114,7 @@ const Checkout = () => {
   //   }
   // };
 
-  // const { data } = useParams();
-
   const createOrder2 = (data) => {
-    
     createOrder(data, cart, totalPrice, clearCart)
       .then((order) => {
         setOrder(order);
@@ -142,14 +126,7 @@ const Checkout = () => {
       .finally(() => {
         setLoading(false);
       });
-  }
-  // useEffect(() => {
-  //     console.log("estoy en checkout" + data)
-  //   setLoading(true);
-    
-    
-
-  //   }, []);
+  };
 
   if (loading) {
     return <LoadingWidget />;
