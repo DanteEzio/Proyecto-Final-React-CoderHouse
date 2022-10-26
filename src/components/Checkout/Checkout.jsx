@@ -128,7 +128,7 @@ const Checkout = () => {
   }
 
   if (error) {
-    return <h1>Hubo un Error</h1>;
+    return <h1>Hubo un Error!</h1>;
   }
 
   return (
