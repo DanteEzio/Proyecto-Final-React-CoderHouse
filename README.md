@@ -121,6 +121,9 @@ REACT_APP_appId=1:842526005950: ****************************
 *** npm start ***
 - Finalmente, se abrirá el navegador que tenemos predefinido y podremos utilizar el proyecto, sin ningún inconveniente.
 
-##  ************* Fin de Instalación **************
-##
-##
+###  ************* Fin de Instalación **************
+________________________________________________________________
+## 🥷 _Autor: Erick Loza_
+________________________________________________________________
+##  🆘 _Ayuda:_
+Si tienes alguna duda de funcionalidad con el proyecto puedes contactarmen en: https://www.linkedin.com/in/erick-raul-loza-dom%C3%ADnguez-a86504239/
