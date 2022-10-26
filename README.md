@@ -91,9 +91,17 @@ REACT_APP_appId=1:842526005950: ****************************
 *** npm start ***
 - Finalmente, se abrirá el navegador que tenemos predefinido y podremos utilizar el proyecto, sin ningún inconveniente.
 
-##  **************************** Fin ***************************
+##  **************************** Fin de Instalación ***************************
 ##
 ##
-##
-##
-##
+
+
+## *** --> Descripción del Proyecto<-- ***
+
+Este proyecto fue creado tomando como referencia la implementación de un E-Commerce para la tienda de NVIDIA.
+
+Las dependencias utilizadas fueron:
+- Bootstrap: Este Framework me ayudó a facilitar el desarrollo de la página, ya que esta pensado en crear páginas de manera más rápida y desde un inicio de manera responsiva, por lo tanto opte por utillizar esta biblioteca.
+- SweetAlert: Esta herramienta me ayudó para poder generar alertas mas personalizadas y mas bonitas a la vista.
+- React-Hook-Form: Me ayudo con la implementación del formulario ya que me permitio poder validar que la información ingresada en los Inputs de mi form fuera correcta y que en caso de que alguno de estos campos no fuera llenado, no se pudiera continuar con la compra.
+- Fontawesome: Me ayudo con la implementación de algunos iconos utilizados a lo largo de la página.
