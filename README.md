@@ -1,70 +1,99 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## *** --> Pasos a Seguir Para Correr el Proyecto-Final <-- ***
 
-## Available Scripts
+### 1. Clonando repositorio
+- Crear una nueva carpeta con el nombre ✨Proyecto✨(ahí alojaremos la copia del proyecto).
+- Dar click derecho sobre la carpeta que acabamos de crear -> (Proyecto) y seleccionamos la opción ✨Abrir en Terminal✨
+- Copiar el siguiente Comando ✨git clone https://github.com/DanteEzio/REACT-PF-ENTREGA-2.git✨ pegarlo en la Terminal y seleccionar la tecla "Intro o Enter" de tu Teclado.
+- Ahora veremos que se empezaran a almacenar todos los archivos del repositorio en la carpeta ✨Proyecto✨
+- Una vez que concluya este proceso en la Terminal, procederemos a cerrarla y daremos por concluido la ✨Clonacion del Repositorio ✨en nuestra carpeta destino.
 
-In the project directory, you can run:
+### 2. Instalando Módulos
 
-### `npm start`
+- Dar click derecho del Mouse Sobre la Carpeta donde se Almaceno el Proyecto y seleccionamos la opción ✨Abrir con Visual Studio Code✨
+- Una vez abierto el proyecto, dentro de Visual Studio Code seleccionaremos la carpeta "ReactProyectoFinal", posteriormente daremos click derecho del ratón sobre la carpeta y seleccionaremos la opción "Open in Integrated Terminal".
+- Una vez abierta la Terminal de Visual Studio Code, copiaremos el siguiente comando (npm install) y lo ejecutaremos en la terminal.
+- Una vez que termine la ejecución de este comando, nuestro Proyecto contará con los modulos requeridos para poder ser ejecutado.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. Creando Base de Datos y Colecciones en FireBase
+- Dentro de la plataforma de Firebase, crearemos una nueva Base de Datos (BD) con la herramienta Firestore Database.
+- Dentro de nuestra BD, crearemos 2 nuevas colecciones:
+----------------------------------------------------------------------------
+--La primera coleccion se llamará "categories".
+------Dentro de "categories" crearemos 3 nuevos documentos con los siguientes campos:
+##### ------------------- Documento 1 (Laptops)  -------------------
+##
+| label | Laptops |
+| ------ | ------ |
+| order | 1 |
+| slug | laptops |
+##### ------------------- Documento 2 (Tarjetas Gráficas)  -------------------
+##
+| label | Tarjetas Gráficas |
+| ------ | ------ |
+| order | 2 |
+| slug | tarjetas-graficas |
+##### ------------------- Documento 3 (Monitores G-SYNC)  -------------------
+##
+| label | Monitores G-SYNC |
+| ------ | ------ |
+| order | 3 |
+| slug | monitores |
+----------------------------------------------------------------------
+–La segunda colección se llamará “products”.
+------Dentro de “products” crearemos 1 nuevo documento por cada producto que queramos agregar con los siguientes campos:
+##### ✨Ejemplo✨
+##
+| categoria | laptops |
+| ------ | ------ |
+| descripcion | Laptop gamer ASUS TUF F15 15.6 pulgadas Full HD Intel Core i5 NVIDIA GeForce RTX 3050 8 GB RAM 512 GB SSD |
+| id | 1 |
+| img | https://raw.githubusercontent.com/DanteEzio/ImgFinalProyectReact/master/Laptop%20gamer%20ASUS%20TUF%20F15%20(1).avif |
+| img2 | https://raw.githubusercontent.com/DanteEzio/ImgFinalProyectReact/master/Laptop%20gamer%20ASUS%20TUF%20F15%20(1).avif |
+| img3 | https://raw.githubusercontent.com/DanteEzio/ImgFinalProyectReact/master/Laptop%20gamer%20ASUS%20TUF%20F15%20(1).avif |
+| img4 | https://raw.githubusercontent.com/DanteEzio/ImgFinalProyectReact/master/Laptop%20gamer%20ASUS%20TUF%20F15%20(1).avif |
+| nombre | Laptop gamer ASUS TUF F15 |
+| pDescuento | 25199 |
+| pReal | 29999 |
+| sku | "1115216887" |
+| stock | 19 |
+----------------------------------------------------------------------
+- Una vez creadas las dos colecciones de manera correcta podremos proceder a conectar Firebase con nuestro proyecto.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. Conectando Firebase con nuestro Proyecto
+- Para poder conectar FireBase con nuestro Proyecto de React, dentro del menu de Firebase ubicaremos la pestaña "Descripción general", ahí seleccionaremos la rondana que se encuentra en la parte derecha de la pestaña y seleccionaremos la opción con el nombre "Configuración del proyecto".
+- Dentro de esta pestaña nos desplazaremos a la parte de abajo y ubicaremos un apartado con el nombre de "Tus apps".
+- En este apartado seleccionaremos el botón azul "Agrega una App".
+- Dentro de Agrega una App, seleccionaremos la opcion que tenga el Icono "</>".
+- Ahora le pondremos un nombre a la App que queremos registrar, dejaremos la casilla que dice "Además, configura Firebase Hosting para esta app." en blanco y seleccionaremos el boton azul "Registrar App".
+- Posteriormente encontraremos unas credenciales con la siguiente información:
+##
+| apiKey: | ******** |
+| ------ | ------ |
+| authDomain: | ******** |
+| projectId: | ******** |
+| storageBucket: | ******** |
+| messagingSenderId: | ******** |
+| appId: | ******** |
 
-### `npm test`
+- Con base en estos valores obtenidos, nos dirigiremos a Visual Studio Code, daremos click derecho del mouse en la carpeta que aloja nuestro proyecto (ReactProyectoFinal) seleccionaremos la opcion que dice "New File ó Nuevo Archivo" y le pondremos el nombre ".env".
+- Una vez creado este archivo lo abriremos e ingresaremos las credenciales obtenidas en Firebase como se muestra a continuación en el siguiente ejemplo:
+REACT_APP_apiKey= ****************************
+REACT_APP_authDomain= ****************************
+REACT_APP_projectId= ****************************
+REACT_APP_storageBucket= ****************************
+REACT_APP_messagingSenderId= ****************************
+REACT_APP_appId=1:842526005950: ****************************
+-Finalmente, una vez comprobando que los valores ingresados son correcto, guardaremos el archivo y nuestro proyecto se encontrará listo para ser ejecutado.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5. Corriendo nuestro Proyecto
+- Para poder correr el proyecto, dentro de la terminal, ejecutaremos el siguiente comando:
+*** npm start ***
+- Finalmente, se abrirá el navegador que tenemos predefinido y podremos utilizar el proyecto, sin ningún inconveniente.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##  **************************** Fin ***************************
+##
+##
+##
+##
+##
