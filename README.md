@@ -1,5 +1,35 @@
+## 📄 _Descripción del Proyecto_
 
-## *** --> Pasos a Seguir Para Correr el Proyecto-Final <-- ***
+Nvidia-Ecommerce es un proyecto pensado en la venta de productos de la familia Nvidia:
+- Laptops
+- Monitores
+- Tarjetas Gráficas
+
+Esta idea es la continuación de un proyecto que fue entregado como trabajo final en el Curso de JS el cual pueden consultar en la siguiente liga:
+🌐 -> https://danteezio.github.io/AJAX-FETCH/
+_____________________________________________________________________
+## 🔧 _Dependencias Utilizadas_
+Las dependencias utilizadas fueron:
+- Bootstrap: Este Framework me ayudó a facilitar el desarrollo de la página, ya que esta pensado en crear páginas de manera más rápida y desde un inicio de manera responsiva.
+- SweetAlert: Esta herramienta me permitio generar alertas más personalizadas y más bonitas a la vista del usuario.
+- React-Hook-Form: Me ayudo con la implementación del formulario ya que me permitio poder validar que la información ingresada en los Inputs de mi form fuera correcta y que en caso de que alguno de estos campos se encontrará vacío, impidiera completar la Compra.
+- Fontawesome: Me ayudo con la implementación de algunos iconos utilizados a lo largo de la página.
+__________________________________________________________________________
+## ⚙️ _Funcionalidades_
+- 🧭 Navbar: Se puede decir que es el alma de la página, ya que sin su existencia no sería posible navegar entre las diveras categorías creadas a lo largo de la página (Monitores, Tarjetas Gráficas, Laptops y el Cart-Widget).
+- 🛒 Cart-Widget: Este Icono es el encargado de mostrarle al usuario la cantidad de productos que tiene agregados en el carrito de compras, así como tambien es el encargado de poder llevar al usuario al apartado del detalle del carrito de compras.
+- Item List Container: Este componente es el encargado de poder mostrar (pintar) las lista de productos que se encuentra almacenada en mi base de datos de Firebase a través de una función asincrona.
+- Item List: Este componente se encarga de mapear el arreglo de productos que se encuentra almacenada en mi base de datos.
+- Item Detail: Este otro componente se encarga de mostrar el detalle de cada uno de mis productos almacenados en mi BD, así como también de brindar la opción de agregar un producto al carrito de compras y también poder aumentar o disminuir la cantidad agregada de ese producto en el carrito.
+- 🛍️Checkout: Este componente es el encargado de generar la confirmación de compra, aquí podremos encontrar un formulario el cual deberá de ser llenado con la información personal del usuario, para que posteriormente pueda ser contactado.
+- 📁 Carpeta Context: Este componente es el encargado de compartir toda la logica del carrito de compras en nuestra Aplicación Web.
+- 📂 Carpeta Services: Esta carpeta contiene los recursos necesarios para poder conectar nuestra Aplicación Web con la BD de FireBase. Aquí encontraremos dos archivos, el primero (index.js) sera el encargado de portar la logica para poder generar la conexion de la aplicación Web con la BD y el segundo archivo (firestore) será el encargado de portar toda la logica para poder traer toda la información que necesitan nuestros componentes Item List Container (con la función "getProducts"), Item Detail Container (con la función "getProductsById") y Checkout (con la función "createOrder").
+
+__________________________________________________________________________
+## ✨ _Link del Proyecto Final almacenado en la Página Vercel_
+🌐 Link: https://proyecto-final-react-six.vercel.app/
+__________________________________________________________________________
+## 🧟 _Pasos a Seguir Para Correr el Proyecto-Final de manera Local_
 
 ### 1. Clonando repositorio
 - Crear una nueva carpeta con el nombre ✨Proyecto✨(ahí alojaremos la copia del proyecto).
@@ -91,17 +121,6 @@ REACT_APP_appId=1:842526005950: ****************************
 *** npm start ***
 - Finalmente, se abrirá el navegador que tenemos predefinido y podremos utilizar el proyecto, sin ningún inconveniente.
 
-##  **************************** Fin de Instalación ***************************
+##  ************* Fin de Instalación **************
 ##
 ##
-
-
-## *** --> Descripción del Proyecto<-- ***
-
-Este proyecto fue creado tomando como referencia la implementación de un E-Commerce para la tienda de NVIDIA.
-
-Las dependencias utilizadas fueron:
-- Bootstrap: Este Framework me ayudó a facilitar el desarrollo de la página, ya que esta pensado en crear páginas de manera más rápida y desde un inicio de manera responsiva, por lo tanto opte por utillizar esta biblioteca.
-- SweetAlert: Esta herramienta me ayudó para poder generar alertas mas personalizadas y mas bonitas a la vista.
-- React-Hook-Form: Me ayudo con la implementación del formulario ya que me permitio poder validar que la información ingresada en los Inputs de mi form fuera correcta y que en caso de que alguno de estos campos no fuera llenado, no se pudiera continuar con la compra.
-- Fontawesome: Me ayudo con la implementación de algunos iconos utilizados a lo largo de la página.
