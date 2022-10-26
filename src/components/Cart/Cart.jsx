@@ -99,7 +99,7 @@ const Cart = () => {
           ) : (
             <div className="container text-center pb-5">
               <div className="pt-5 titleCart">
-                <h1>Carrito de Compras Vacío</h1>
+                <h1 className="carritoVacio">Carrito de Compras Vacío</h1>
               </div>
             </div>
           )}
