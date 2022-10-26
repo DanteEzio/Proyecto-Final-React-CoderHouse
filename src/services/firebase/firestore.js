@@ -111,7 +111,7 @@ export const createOrder = async (data, cart, totalPrice, clearCart) => {
       Swal.fire({
         showConfirmButton: true,
         title: `Su compra se realizo de manera éxitosa`,
-        text: `Su # de orden es: ${orderAdded.id}`,
+        text: `Su Número de Orden Es: ${orderAdded.id}`,
         confirmButtonText: "Deacuerdo",
         icon: "success",
         background: "#75b900ab",

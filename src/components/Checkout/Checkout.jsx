@@ -1,20 +1,9 @@
 import "./Checkout.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
-// import {
-//   getDocs,
-//   addDoc,
-//   collection,
-//   where,
-//   query,
-//   documentId,
-//   writeBatch,
-// } from "firebase/firestore";
-// import { db } from "../../services/firebase";
 import LoadingWidget from "../LoadingWidget/LoadingWidget";
-// import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import { useForm } from "react-hook-form";
 import { createOrder } from "../../services/firebase/firestore";
 
@@ -22,14 +11,19 @@ const Checkout = () => {
   const [order, setOrder] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const email = useRef({});
 
   const { cart, totalPrice, clearCart, totalQuantity, getProductTotalPrice } =
     useContext(CartContext);
+  
   const {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
   } = useForm();
+
+  email.current = watch("email", "");
 
   // const onSubmit = (data) => {
   //   alert(JSON.stringify(data));
@@ -110,6 +104,7 @@ const Checkout = () => {
   // };
 
   const createOrder2 = (data) => {
+    setLoading(true);
     createOrder(data, cart, totalPrice, clearCart)
       .then((order) => {
         setOrder(order);
@@ -131,6 +126,7 @@ const Checkout = () => {
     return <h1>Hubo un Error</h1>;
   }
 
+
   return (
     <div className="formCheckout">
       <div className="container p-4">
@@ -148,6 +144,7 @@ const Checkout = () => {
                   <label className="form-label">Nombre Completo</label>
                   <input
                     className="form-control"
+                    placeholder="Nombre Completo"
                     {...register("name", {
                       required: "Nombre Obligatorio",
                       pattern: {
@@ -162,6 +159,7 @@ const Checkout = () => {
                   <label className="form-label">Teléfono</label>
                   <input
                     className="form-control"
+                    placeholder="1234567890"
                     {...register("phone", {
                       required: "Teléfono Obligatorio",
                       pattern: {
@@ -197,6 +195,25 @@ const Checkout = () => {
                     placeholder="ejemplo@mail.com"
                   />
                   <p className="text-danger p-2">{errors.email?.message}</p>
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Confirmar Correo</label>
+                  <input
+                    className="form-control"
+                    type="email"
+                    placeholder="ejemplo@mail.com"
+                    {...register("email_repeat", {
+                      required: "Confirmación Obligatoria",
+                      validate: (value) =>
+                        value === email.current || "Los correos no coinciden",
+                    })}
+                  />
+                  {/* <p className="text-danger p-2">{errors.email?.message}</p> */}
+                  {errors.email_repeat && (
+                    <p className="text-danger p-2">
+                      {errors.email_repeat.message}
+                    </p>
+                  )}
                 </div>
               </form>
             </div>
